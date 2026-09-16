@@ -364,6 +364,12 @@ img {
     display: flex;
   }
 
+  /* On small screens the header CTA is dropped entirely: the bar would be
+     too crowded next to the logo and the menu button. */
+  .nav-cta {
+    display: none;
+  }
+
   /* The plans CTA is not repeated in the mobile drawer: it is the first
      entry in the links list on small screens, so showing it twice is noise. */
   .nav-mobile .nav-mobile-cta {
@@ -1923,8 +1929,12 @@ a[aria-current="page"]:focus-visible {
 .channel-card-meta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  /* wrap, not space-between: on narrow cards (two columns on a phone)
+     a long pair such as "International" + "Documentary" cannot fit on
+     one line, and space-between would squeeze the second badge off the
+     card edge. Wrapping drops it to its own line instead. */
+  flex-wrap: wrap;
+  gap: 6px 10px;
   margin-top: auto;
 }
 
@@ -2178,6 +2188,29 @@ a[aria-current="page"]:focus-visible {
 
   .channel-card-name {
     font-size: 14.5px;
+  }
+
+  /* Long category names ("International", "Kids & Family") plus a badge
+     such as "Documentary" overflow the two-column cards at this width,
+     so the labels are tightened and allowed to break a word rather than
+     be clipped by the card's overflow: hidden. */
+  .channel-card-meta {
+    gap: 5px 8px;
+  }
+
+  .channel-card .channel-category {
+    font-size: 10px;
+    letter-spacing: .03em;
+  }
+
+  .channel-card .channel-badge {
+    font-size: 9.5px;
+    padding: 3px 8px;
+  }
+
+  .channel-card .channel-category,
+  .channel-card .channel-badge {
+    overflow-wrap: anywhere;
   }
 
   .channel-filter button {
