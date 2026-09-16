@@ -1,0 +1,2193 @@
+/* ==========================================================================
+   IPTVNetworkHub — shared stylesheet
+   Extracted from index.html so that index.html and channels.html can share
+   one visual system (variables, reset, typography, buttons, nav, sections,
+   cards, bento, pricing, testimonials, FAQ, footer, waves, responsive rules).
+   Page-specific styles are scoped under .channels-page at the end of the file.
+   ========================================================================== */
+
+:root {
+  --white: #FFFFFF;
+  --paper: #FBFAF7;
+  --ink: #121109;
+  --ink-soft: #6B6858;
+  --line: #ECE8DD;
+  --black: #0B0A07;
+  --gold-1: #FFDE87;
+  --gold-2: #E6B94D;
+  --gold-3: #B8862B;
+  --radius-lg: 26px;
+  --radius-md: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.display {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width:640px) {
+  .wrap {
+    padding: 0 20px;
+  }
+}
+
+.gold-text {
+  background: linear-gradient(100deg, var(--gold-1), var(--gold-3) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 30px;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 100px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+  white-space: nowrap;
+}
+
+.btn-grad {
+  background: linear-gradient(100deg, var(--gold-1), var(--gold-2) 60%, var(--gold-3));
+  color: var(--black);
+  box-shadow: 0 8px 24px -8px rgba(184, 134, 43, 0.55);
+}
+
+.btn-grad:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(184, 134, 43, 0.6);
+}
+
+.btn-ghost-dark {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.btn-ghost-dark:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-ghost-light {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.btn-ghost-light:hover {
+  border-color: var(--gold-3);
+  color: var(--gold-3);
+}
+
+/* Floating nav. The outer element is transparent and its mobile drawer is
+   rendered as an overlay, so nothing reveals the white page behind it.
+   The bar itself stays put while scrolling — only the mobile drawer opens
+   and closes. */
+.nav-outer {
+  position: sticky;
+  top: 18px;
+  z-index: 60;
+  padding: 0 20px;
+  background: transparent;
+}
+
+.nav {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 12px 22px;
+  background: rgba(11, 10, 7, 0.82);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  box-shadow: 0 12px 30px -14px rgba(0, 0, 0, 0.35);
+}
+
+.logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo .mark {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-3));
+  flex: none;
+}
+
+.logo .hub {
+  background: linear-gradient(100deg, var(--gold-2), var(--gold-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+  transition: color .15s ease;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+
+/* Current-page indicator inside the navigation */
+.nav-links a[aria-current="page"] {
+  color: var(--white);
+  position: relative;
+}
+
+.nav-links a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(100deg, var(--gold-1), var(--gold-3));
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-cta .btn {
+  padding: 10px 11px;
+  font-size: 13.5px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  /* The three bars are stacked in a column and centred, so morphing them
+     into a cross only takes one translate + one rotate per bar. */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  margin: 2.5px 0;
+  transition: transform .3s cubic-bezier(.22, .61, .36, 1), opacity .2s ease;
+}
+
+/* Open state: the bars fold into an X. */
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-toggle span {
+    transition: none;
+  }
+}
+
+/* Mobile navigation drawer (shared by index.html and channels.html).
+   It is an overlay: it is taken out of the flow so opening it never
+   grows the sticky header and never pushes the page content down.
+   It opens with a small slide/fade rather than popping in. */
+.nav-mobile {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px) scale(.98);
+  transform-origin: top center;
+  transition: opacity .28s ease, transform .28s cubic-bezier(.22, .61, .36, 1),
+    visibility 0s linear .28s;
+  position: absolute;
+  top: calc(100% - 8px);
+  left: 20px;
+  right: 20px;
+  max-width: 1160px;
+  margin: 10px auto 0;
+  background: rgba(11, 10, 7, 0.96);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 16px 20px 20px;
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+}
+
+.nav-mobile.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity .28s ease, transform .28s cubic-bezier(.22, .61, .36, 1),
+    visibility 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-mobile {
+    transition: none;
+  }
+}
+
+.nav-mobile a {
+  display: block;
+  padding: 12px 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.nav-mobile a:last-of-type {
+  border-bottom: none;
+}
+
+.nav-mobile a:hover,
+.nav-mobile a:focus-visible {
+  color: var(--white);
+}
+
+/* Current-page indicator inside the mobile drawer, mirroring the
+   desktop underline so the active page is just as obvious on a phone. */
+.nav-mobile a[aria-current="page"] {
+  color: var(--white);
+  position: relative;
+  padding-left: 22px;
+}
+
+.nav-mobile a[aria-current="page"]::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--gold-1), var(--gold-3));
+}
+
+.nav-mobile .btn {
+  width: 100%;
+  margin-top: 14px;
+}
+
+@media (max-width:920px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    /* flex, not block — the bars are centred by the flex column layout. */
+    display: flex;
+  }
+
+  /* The plans CTA is not repeated in the mobile drawer: it is the first
+     entry in the links list on small screens, so showing it twice is noise. */
+  .nav-mobile .nav-mobile-cta {
+    display: none;
+  }
+}
+
+/* WAVE DIVIDERS */
+.wave {
+  line-height: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.wave svg {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+
+/* Pull the section right after a wave up by 2px so any subpixel
+   rounding gap from the SVG scaling is covered, not exposed. */
+.wave + section,
+.wave + footer {
+  position: relative;
+  margin-top: -2px;
+}
+
+/* The hero's wave is nested inside .hero (which clips with
+   overflow:hidden), so fix that boundary from the outside too. */
+.hero + section {
+  position: relative;
+  margin-top: -2px;
+}
+
+@media (max-width:700px) {
+  .wave svg {
+    height: 52px;
+  }
+}
+
+.wave.bg-black {
+  background: var(--black);
+}
+
+.wave.bg-white {
+  background: var(--white);
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  background: var(--black);
+  color: var(--white);
+  padding: 150px 0 0;
+  margin-top: -92px;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.glow-1 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(255, 222, 135, 0.32), transparent 70%);
+  top: -180px;
+  left: -140px;
+}
+
+.glow-2 {
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle, rgba(184, 134, 43, 0.35), transparent 70%);
+  top: 20px;
+  right: -160px;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 50px;
+  align-items: center;
+  padding-bottom: 70px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-1);
+  background: rgba(255, 222, 135, 0.08);
+  border: 1px solid rgba(255, 222, 135, 0.25);
+  padding: 7px 16px;
+  border-radius: 100px;
+  margin-bottom: 26px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 22px;
+}
+
+.hero p.lead {
+  font-size: 17.5px;
+  color: rgba(255, 255, 255, 0.62);
+  max-width: 460px;
+  margin-bottom: 34px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+@media (max-width:900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+}
+
+/* Phone mockup */
+.phone-wrap {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.phone {
+  width: 250px;
+  border-radius: 34px;
+  background: linear-gradient(160deg, #3A3730, #16150F 55%, #0C0B08);
+  border: 6px solid #57534A;
+  padding: 14px 12px;
+  box-shadow: 0 30px 70px -20px rgba(230, 185, 77, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.phone-notch {
+  position: relative;
+  width: 82px;
+  height: 20px;
+  background: #0B0A07;
+  border-radius: 12px;
+  margin: 0 auto 12px;
+}
+
+/* Camera lens inside the island */
+.phone-notch::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 7px;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #2b3f6b 0%, #0d1424 55%, #05070c 100%);
+}
+
+.phone-screen {
+  background: var(--black);
+  border-radius: 18px;
+  aspect-ratio: 9/17;
+  position: relative;
+  overflow: hidden;
+}
+
+.phone-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: top center;
+}
+
+/* Device cluster: TV + tablet + phone together in the hero */
+.device-cluster {
+  position: relative;
+  width: 480px;
+  max-width: 100%;
+  height: 430px;
+}
+
+/* TV mockup */
+.cluster-tv {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 360px;
+  z-index: 1;
+}
+
+.tv-frame {
+  border-radius: 14px;
+  background: linear-gradient(160deg, #3A3730, #16150F 55%, #0C0B08);
+  border: 8px solid #57534A;
+  padding: 10px;
+  box-shadow: 0 30px 70px -20px rgba(230, 185, 77, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.tv-screen {
+  background: var(--black);
+  border-radius: 4px;
+  aspect-ratio: 16/9;
+  position: relative;
+  overflow: hidden;
+}
+
+.tv-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: top center;
+}
+
+.tv-stand-neck {
+  width: 16px;
+  height: 24px;
+  background: #57534A;
+  margin: 0 auto;
+}
+
+.tv-stand-base {
+  width: 130px;
+  height: 10px;
+  background: #57534A;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+
+/* Tablet mockup */
+.cluster-tablet {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 150px;
+  transform: rotate(-6deg);
+  z-index: 2;
+}
+
+.tablet-frame {
+  border-radius: 20px;
+  background: linear-gradient(160deg, #3A3730, #16150F 55%, #0C0B08);
+  border: 6px solid #57534A;
+  padding: 10px 8px;
+  box-shadow: 0 24px 60px -18px rgba(230, 185, 77, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.tablet-cam {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0B0A07;
+  margin: 0 auto 8px;
+}
+
+.tablet-screen {
+  background: var(--black);
+  border-radius: 10px;
+  aspect-ratio: 3/4;
+  position: relative;
+  overflow: hidden;
+}
+
+.tablet-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: top center;
+}
+
+/* Phone position inside the cluster — .phone/.phone-notch/.phone-screen are untouched */
+.cluster-phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: scale(0.72) rotate(6deg);
+  transform-origin: bottom right;
+  z-index: 3;
+}
+
+@media (max-width:900px) {
+  .device-cluster {
+    width: 400px;
+    height: 360px;
+  }
+
+  .cluster-tv {
+    width: 300px;
+  }
+
+  .cluster-tablet {
+    width: 125px;
+  }
+
+  .cluster-phone {
+    transform: scale(0.6) rotate(6deg);
+  }
+}
+
+@media (max-width:480px) {
+  .device-cluster {
+    width: 280px;
+    height: 260px;
+  }
+
+  .cluster-tv {
+    width: 210px;
+  }
+
+  .tv-stand-base {
+    width: 90px;
+  }
+
+  .cluster-tablet {
+    width: 90px;
+  }
+
+  .cluster-phone {
+    transform: scale(0.42) rotate(6deg);
+  }
+}
+
+/* Headline section under hero */
+.intro {
+  padding: 64px 0 10px;
+  background: var(--white);
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.intro h2 {
+  font-size: 32px;
+  line-height: 1.18;
+  max-width: 520px;
+}
+
+.intro p {
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  margin-top: 16px;
+  max-width: 440px;
+}
+
+@media (max-width:860px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Stat badges (circle icon style, like reference) */
+.stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.stat-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-badge svg {
+  width: 22px;
+  height: 22px;
+}
+
+.stat-item .num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.stat-item .label {
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+/* Section generic */
+.section {
+  padding: 90px 0;
+}
+
+.section-head {
+  max-width: 600px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.section-head .kicker {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-3);
+  margin-bottom: 14px;
+}
+
+.section-head h2 {
+  font-size: 36px;
+  line-height: 1.14;
+  margin-bottom: 14px;
+}
+
+.section-head p {
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+.pricing-section .section-head h2,
+.how-section .section-head h2 {
+  color: var(--white);
+}
+
+.pricing-section .section-head p,
+.how-section .section-head p {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pricing-section .kicker,
+.how-section .kicker {
+  color: var(--gold-1);
+}
+
+/* Bento features */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.bento-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.bento-card:hover {
+  border-color: var(--gold-2);
+  transform: translateY(-3px);
+}
+
+.bento-card h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.bento-card p {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.bento-1 {
+  grid-column: span 2;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 300px;
+  background: linear-gradient(160deg, #FFF7E6, var(--paper));
+}
+
+.bento-1 h3 {
+  font-size: 24px;
+}
+
+.bento-2 {
+  grid-column: span 2;
+}
+
+.bento-3 {
+  grid-column: span 1;
+}
+
+.bento-4 {
+  grid-column: span 1;
+}
+
+.bento-5 {
+  grid-column: span 2;
+}
+
+@media (max-width:900px) {
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bento-1 {
+    grid-column: span 2;
+    min-height: 200px;
+  }
+
+  .bento-2,
+  .bento-5 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width:600px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-1,
+  .bento-2,
+  .bento-3,
+  .bento-4,
+  .bento-5 {
+    grid-column: span 1;
+  }
+}
+
+/* Swipers (Live Channels / Movies & Series) */
+.swiper-block {
+  margin-top: 64px;
+}
+
+.swiper-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.swiper-head h3 {
+  font-size: 22px;
+}
+
+.swiper-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* "View all channels" — quiet text link that reveals the gold arrow on hover.
+   The Live channels block sits on the light section background, so the
+   resting colour is the dark ink, not white. */
+.swiper-viewall {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: rgba(18, 17, 9, 0.62);
+  transition: color .15s ease;
+}
+
+.swiper-viewall svg {
+  width: 15px;
+  height: 15px;
+  transition: transform .18s ease;
+}
+
+.swiper-viewall:hover,
+.swiper-viewall:focus-visible {
+  color: var(--gold-3);
+}
+
+.swiper-viewall:hover svg,
+.swiper-viewall:focus-visible svg {
+  transform: translateX(3px);
+}
+
+/* The block heading doubles as a link back to the channel lineup */
+.swiper-title-link {
+  color: inherit;
+  transition: color .15s ease;
+}
+
+.swiper-title-link:hover,
+.swiper-title-link:focus-visible {
+  color: var(--gold-3);
+}
+
+.swiper-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+/* On narrow screens the heading, the "View all" link and the arrows would
+   crowd one row, so they stack instead. */
+@media (max-width:600px) {
+  .swiper-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .swiper-head-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.swiper-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--black);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s ease, transform .15s ease;
+}
+
+.swiper-btn:hover {
+  background: var(--gold-3);
+  transform: translateY(-1px);
+}
+
+.swiper-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.swiper-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.swiper-track::-webkit-scrollbar {
+  display: none;
+}
+
+.swiper-track>* {
+  scroll-snap-align: start;
+  flex: none;
+}
+
+/* Each slide links to the full channel lineup on channels.html */
+.channel-slide {
+  display: block;
+  width: 230px;
+  aspect-ratio: 16/10;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--black);
+  color: inherit;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.channel-slide:hover,
+.channel-slide:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--gold-1);
+  box-shadow: 0 18px 34px -22px rgba(184, 134, 43, 0.85);
+}
+
+.channel-slide:focus-visible {
+  outline: 2px solid var(--gold-1);
+  outline-offset: 2px;
+}
+
+/* Channel artwork */
+.channel-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Darkening scrim so the caption stays readable over any still */
+.channel-slide::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 68%;
+  background: linear-gradient(180deg, rgba(11, 10, 7, 0) 0%, rgba(11, 10, 7, 0.68) 55%, rgba(11, 10, 7, 0.92) 100%);
+  pointer-events: none;
+}
+
+.channel-slide .caption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+}
+
+.channel-slide .cat {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 3px;
+}
+
+.channel-slide .name {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.channel-slide .live-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  background: var(--gold-1);
+  color: var(--black);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.movie-slide {
+  width: 160px;
+  aspect-ratio: 2/3;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--black);
+}
+
+/* Poster artwork */
+.movie-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Darkening scrim so the caption stays readable over any poster */
+.movie-slide::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 62%;
+  background: linear-gradient(180deg, rgba(11, 10, 7, 0) 0%, rgba(11, 10, 7, 0.72) 55%, rgba(11, 10, 7, 0.94) 100%);
+  pointer-events: none;
+}
+
+.movie-slide .caption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+}
+
+.movie-slide .play {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(11, 10, 7, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-slide .play svg {
+  width: 12px;
+  height: 12px;
+}
+
+.movie-slide .genre {
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: 3px;
+}
+
+.movie-slide .title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.25;
+}
+
+/* How it works (dark) */
+.how-section {
+  background: var(--black);
+  color: var(--white);
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.t-step {
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 30px;
+}
+
+.t-step .idx {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-3));
+  color: var(--black);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.t-step h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--white);
+}
+
+.t-step p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width:760px) {
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Devices */
+.devices-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.devices-row span {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Pricing */
+.pricing-section {
+  background: var(--black);
+  color: var(--white);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.plan {
+  border-radius: var(--radius-lg);
+  padding: 34px 28px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.plan.featured {
+  background: linear-gradient(160deg, rgba(255, 222, 135, 0.09), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 222, 135, 0.35);
+  box-shadow: 0 20px 50px -20px rgba(230, 185, 77, 0.35);
+}
+
+.plan-tag {
+  position: absolute;
+  top: -12px;
+  left: 28px;
+  background: linear-gradient(100deg, var(--gold-1), var(--gold-3));
+  color: var(--black);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  padding: 5px 14px;
+  border-radius: 100px;
+}
+
+.plan-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 16px;
+}
+
+.plan-price {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.plan-price span {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.plan-desc {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 24px;
+}
+
+.plan-features {
+  margin-bottom: 28px;
+}
+
+.plan-features li {
+  font-size: 14px;
+  padding: 9px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.plan-features li:first-child {
+  border-top: none;
+}
+
+.plan-features li::before {
+  content: '✦';
+  color: var(--gold-2);
+  flex: none;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.plan .btn {
+  width: 100%;
+}
+
+@media (max-width:900px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Testimonials */
+.testi-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.testi-card {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  padding: 26px;
+  background: var(--paper);
+}
+
+.testi-card p.quote {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.testi-card .who {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--gold-3);
+}
+
+@media (max-width:760px) {
+  .testi-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FAQ */
+.faq {
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  margin-bottom: 12px;
+  padding: 4px 22px;
+  background: var(--paper);
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 15.5px;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px;
+  color: var(--gold-3);
+  flex: none;
+  margin-left: 20px;
+}
+
+.faq-item[open] summary::after {
+  content: '–';
+}
+
+.faq-item p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  padding-bottom: 20px;
+}
+
+/* Dark variant of the FAQ block, used by the channels page */
+.faq-item.faq-item-dark {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.faq-item.faq-item-dark summary {
+  color: var(--white);
+}
+
+.faq-item.faq-item-dark p {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.faq-item.faq-item-dark summary::after {
+  color: var(--gold-1);
+}
+
+/* CTA (dark) */
+.cta-band {
+  position: relative;
+  background: var(--black);
+  color: var(--white);
+  padding: 90px 0 70px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-band .glow {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 222, 135, 0.2), transparent 70%);
+  top: -260px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-band h2 {
+  font-size: 38px;
+  margin-bottom: 16px;
+  color: var(--white);
+}
+
+.cta-band p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  margin-bottom: 34px;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Footer */
+footer {
+  background: var(--black);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 50px 0 32px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand .logo {
+  margin-bottom: 14px;
+  color: var(--white);
+}
+
+.footer-brand p {
+  font-size: 14px;
+  max-width: 280px;
+}
+
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--white);
+}
+
+.footer-col li {
+  margin-bottom: 11px;
+}
+
+.footer-col a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.footer-col a:hover {
+  color: var(--gold-1);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+}
+
+@media (max-width:760px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY — visible focus states and reduced-motion support
+   ========================================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--gold-2);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+  .btn:focus-visible,
+  .swiper-btn:focus-visible,
+  .swiper-viewall:focus-visible,
+  .swiper-title-link:focus-visible,
+  .menu-toggle:focus-visible {
+  outline: 2px solid var(--gold-1);
+  outline-offset: 3px;
+}
+
+a[aria-current="page"]:focus-visible {
+  outline-color: var(--gold-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .btn:hover,
+  .bento-card:hover,
+  .channel-card:hover,
+  .channel-slide:hover,
+  .swiper-btn:hover {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   SHARED CHANNEL COMPONENTS
+   Building blocks reused by the channel strips on index.html and by the
+   channel grid on channels.html.
+   ========================================================================== */
+
+.channel-category {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--gold-3);
+}
+
+.channel-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(11, 10, 7, 0.06);
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+}
+
+.channel-badge.gold {
+  background: linear-gradient(100deg, rgba(255, 222, 135, 0.35), rgba(184, 134, 43, 0.2));
+  color: var(--gold-3);
+  border-color: rgba(184, 134, 43, 0.35);
+}
+
+.channel-logo-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  border-bottom: 1px solid var(--line);
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.channel-logo-frame img {
+  display: block;
+  width: auto;
+  max-width: 72%;
+  max-height: 62%;
+  object-fit: contain;
+}
+
+/* Scrollable logo strip — decorative on index-style heroes */
+.channel-strip {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 4px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.channel-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.channel-strip img {
+  height: 34px;
+  width: auto;
+  flex: none;
+  opacity: .72;
+  filter: grayscale(1) brightness(2.2);
+  transition: opacity .2s ease, filter .2s ease;
+}
+
+.channel-strip img:hover {
+  opacity: 1;
+  filter: none;
+}
+
+/* ==========================================================================
+   CHANNELS PAGE (scoped — does not affect index.html)
+   Every rule below is namespaced under .channels-page.
+   ========================================================================== */
+
+.channels-page .channels-hero {
+  position: relative;
+  background: var(--black);
+  color: var(--white);
+  margin-top: -92px;
+  padding: 158px 0 0;
+  overflow: hidden;
+}
+
+.channels-page .channels-hero .glow-3 {
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(255, 222, 135, 0.22), transparent 70%);
+  bottom: -320px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.channels-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.channels-page .hero-eyebrow {
+  margin-bottom: 22px;
+}
+
+.channels-page .channels-hero h1 {
+  font-size: 50px;
+  line-height: 1.06;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.channels-page .channels-hero p {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 620px;
+  margin: 0 auto 32px;
+}
+
+.channels-page .hero-actions {
+  justify-content: center;
+}
+
+/* Decorative logo strip under the hero copy */
+.channels-logo-strip {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 26px 0 34px;
+}
+
+.channels-strip-label {
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+  margin-bottom: 18px;
+}
+
+/* Filter + search toolbar */
+.channels-toolbar {
+  background: var(--white);
+  padding: 44px 0 8px;
+}
+
+.channels-search {
+  max-width: 560px;
+  margin: 0 auto 26px;
+  position: relative;
+}
+
+.channels-search label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.channels-search input {
+  width: 100%;
+  padding: 15px 22px 15px 50px;
+  border-radius: 100px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.channels-search input::placeholder {
+  color: #A9A593;
+}
+
+.channels-search input:focus {
+  outline: none;
+  border-color: var(--gold-2);
+  box-shadow: 0 0 0 4px rgba(230, 185, 77, 0.16);
+}
+
+.channels-search svg {
+  position: absolute;
+  left: 20px;
+  bottom: 16px;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.channel-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.channel-filter button {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 100px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.channel-filter button:hover {
+  border-color: var(--gold-2);
+  color: var(--ink);
+}
+
+.channel-filter button[aria-pressed="true"] {
+  background: linear-gradient(100deg, var(--gold-1), var(--gold-2) 60%, var(--gold-3));
+  border-color: transparent;
+  color: var(--black);
+  box-shadow: 0 8px 20px -10px rgba(184, 134, 43, 0.6);
+}
+
+/* Result counter */
+.channels-count {
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 22px auto 0;
+}
+
+.channels-count strong {
+  color: var(--ink);
+}
+
+/* Channel grid */
+.channels-section {
+  background: var(--white);
+  padding: 30px 0 90px;
+}
+
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.channel-card {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.channel-card:hover,
+.channel-card:focus-within {
+  border-color: var(--gold-2);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px -22px rgba(184, 134, 43, 0.6);
+}
+
+.channel-card[hidden] {
+  display: none;
+}
+
+/* The project's channel logos are mostly white artwork on transparent
+   backgrounds (the same reason index.html renders its channel strip on
+   black), so the card frame stays dark for legibility. */
+.channel-card .channel-logo-frame {
+  background: var(--black);
+}
+
+.channel-card-body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.channel-card-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.channel-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.channel-card .channel-category {
+  font-size: 11px;
+}
+
+/* Search / filter empty state */
+.channels-empty {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+}
+
+.channels-empty.visible {
+  display: block;
+}
+
+.channels-empty h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.channels-empty p {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+/* Featured channels band (dark, reuses the gold gradient language) */
+.channels-featured {
+  background: var(--black);
+  color: var(--white);
+  padding: 78px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.channels-featured .glow {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(184, 134, 43, 0.28), transparent 70%);
+  top: -220px;
+  right: -160px;
+}
+
+.channels-featured-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.channels-featured .section-head h2 {
+  color: var(--white);
+}
+
+.channels-featured .section-head p {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.channels-featured .section-head {
+  margin-bottom: 44px;
+}
+
+.featured-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.featured-card {
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.featured-card:hover {
+  border-color: rgba(255, 222, 135, 0.4);
+  transform: translateY(-3px);
+}
+
+.featured-logo {
+  width: 60px;
+  height: 60px;
+  flex: none;
+  border-radius: 14px;
+  background: var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.featured-logo img {
+  max-width: 76%;
+  max-height: 66%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.featured-card h3 {
+  font-size: 16px;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.featured-card span {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* SEO content section */
+.channels-content {
+  background: var(--paper);
+  padding: 88px 0;
+}
+
+.channels-content .section-head {
+  max-width: 660px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.content-card {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--white);
+  padding: 26px;
+}
+
+.content-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.content-card p {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+
+/* Gold accent line used as a section divider on the channels page */
+.gold-line {
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-2), transparent);
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+/* Device links section */
+.channels-devices {
+  background: var(--white);
+  padding: 86px 0;
+  text-align: center;
+}
+
+.device-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.device-links a {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 100px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color .18s ease, color .18s ease, transform .18s ease;
+}
+
+.device-links a:hover {
+  border-color: var(--gold-2);
+  color: var(--gold-3);
+  transform: translateY(-2px);
+}
+
+/* Channels page responsive breakpoints */
+@media (max-width:1200px) {
+  .channels-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width:1024px) {
+  .content-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:900px) {
+  .channels-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured-row {
+    grid-template-columns: 1fr;
+  }
+
+  .channels-page .channels-hero h1 {
+    font-size: 38px;
+  }
+}
+
+@media (max-width:768px) {
+  .channels-toolbar {
+    padding: 36px 0 8px;
+  }
+}
+
+@media (max-width:600px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width:480px) {
+  .channels-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .channels-page .channels-hero h1 {
+    font-size: 30px;
+  }
+
+  .channels-page .channels-hero p {
+    font-size: 15.5px;
+  }
+
+  .channel-card-body {
+    padding: 13px 14px 15px;
+  }
+
+  .channel-card-name {
+    font-size: 14.5px;
+  }
+
+  .channel-filter button {
+    font-size: 12.5px;
+    padding: 9px 16px;
+  }
+}
+
+@media (max-width:375px) {
+  .channels-grid {
+    grid-template-columns: 1fr;
+  }
+}
