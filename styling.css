@@ -936,6 +936,36 @@ img {
   font-size: 24px;
 }
 
+.guide-card-firestick {
+  background-image: linear-gradient(180deg, rgba(11, 10, 7, 0.18), rgba(11, 10, 7, 0.88)),
+    url("assets/images/firestick/downloader-banner.webp");
+  background-position: center;
+  background-size: cover;
+  border-color: rgba(255, 222, 135, 0.28);
+  color: var(--white);
+}
+
+.guide-card-firestick h3,
+.guide-card-firestick p {
+  color: var(--white);
+}
+
+.guide-card-firestick p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.guide-card-firestick .btn-ghost-light {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(11, 10, 7, 0.3);
+}
+
+.guide-card-firestick .btn-ghost-light:hover {
+  color: var(--black);
+  border-color: var(--gold-1);
+  background: var(--gold-1);
+}
+
 .bento-2 {
   grid-column: span 2;
 }
@@ -1449,6 +1479,7 @@ img {
 
 .plan-price span {
   font-size: 14px;
+  padding-left: 4px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.45);
 }
@@ -1775,6 +1806,175 @@ a[aria-current="page"]:focus-visible {
   background: linear-gradient(100deg, rgba(255, 222, 135, 0.35), rgba(184, 134, 43, 0.2));
   color: var(--gold-3);
   border-color: rgba(184, 134, 43, 0.35);
+}
+
+/* Firestick guide */
+.guide-page main {
+  background: var(--white);
+}
+
+.guide-hero {
+  padding-top: 78px;
+  padding-bottom: 54px;
+  background: var(--paper);
+}
+
+.guide-breadcrumb {
+  display: flex;
+  gap: 10px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  margin-bottom: 38px;
+}
+
+.guide-breadcrumb a:hover {
+  color: var(--gold-3);
+}
+
+.guide-hero h1 {
+  max-width: 900px;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 1.02;
+  margin: 14px 0 22px;
+}
+
+.guide-intro {
+  max-width: 760px;
+  color: var(--ink-soft);
+  font-size: 18px;
+}
+
+.guide-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 22px;
+  color: var(--gold-3);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.guide-feature,
+.guide-image {
+  margin: 34px 0 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--black);
+}
+
+.guide-feature img,
+.guide-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.guide-content {
+  max-width: 860px;
+  padding-top: 72px;
+  padding-bottom: 90px;
+}
+
+.guide-content > p,
+.guide-content > h2,
+.guide-content > h3,
+.guide-content > ul,
+.guide-content > ol,
+.guide-content > .faq,
+.guide-content > .guide-notice {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.guide-content > p {
+  color: var(--ink-soft);
+  margin-bottom: 22px;
+}
+
+.guide-content h2 {
+  font-size: 34px;
+  line-height: 1.15;
+  margin-top: 58px;
+  margin-bottom: 18px;
+}
+
+.guide-content h3 {
+  font-size: 22px;
+  margin: 32px auto 8px;
+}
+
+.guide-list,
+.guide-steps-overview {
+  color: var(--ink-soft);
+  margin-bottom: 22px;
+  padding-left: 24px;
+}
+
+.guide-list {
+  list-style: disc;
+}
+
+.guide-steps-overview {
+  list-style: decimal;
+}
+
+.guide-list li,
+.guide-steps-overview li {
+  padding: 4px 0 4px 6px;
+}
+
+.guide-notice {
+  padding: 20px 24px;
+  border-left: 3px solid var(--gold-2);
+  background: var(--paper);
+  color: var(--ink-soft);
+  margin-bottom: 34px;
+}
+
+.guide-image {
+  max-width: 760px;
+  margin: 28px auto 34px;
+}
+
+.guide-faq {
+  margin-top: 24px;
+}
+
+.guide-next {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 54px;
+}
+
+@media (max-width:640px) {
+  .guide-hero {
+    padding-top: 48px;
+  }
+
+  .guide-breadcrumb {
+    margin-bottom: 26px;
+  }
+
+  .guide-hero h1 {
+    font-size: 42px;
+  }
+
+  .guide-intro {
+    font-size: 16px;
+  }
+
+  .guide-content {
+    padding-top: 48px;
+  }
+
+  .guide-content h2 {
+    font-size: 29px;
+    margin-top: 44px;
+  }
 }
 
 .channel-logo-frame {
