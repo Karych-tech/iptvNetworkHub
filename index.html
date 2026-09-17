@@ -182,13 +182,17 @@
         </div>
       </div>
     </div>
- </section>
+  </section>
 
- <section class="section section-continued">
+  <section class="section section-continued">
     <div class="wrap">
-      <div class="swiper-block">
+      <div class="swiper-block rail-block rail-block-channels">
         <div class="swiper-head">
-          <h3><a href="channels.html" class="swiper-title-link">Live channels</a></h3>
+          <div class="swiper-heading">
+            <div class="rail-kicker">Live TV streaming</div>
+            <h3 id="live-channels-heading"><a href="channels.html" class="swiper-title-link">Live channels</a></h3>
+            <p class="rail-summary">Browse live sports, breaking news, entertainment and family TV channels in one easy-to-use guide.</p>
+          </div>
           <div class="swiper-head-actions">
             <div class="swiper-arrows">
               <button class="swiper-btn prev" data-target="channel-track" aria-label="Previous">
@@ -206,7 +210,7 @@
             </div>
           </div>
         </div>
-        <div class="swiper-track" id="channel-track">
+        <div class="swiper-track" id="channel-track" aria-labelledby="live-channels-heading" tabindex="0">
           <a class="channel-slide" href="channels.html">
             <img src="swiper-channels/Championship.png" alt="Championship Arena live sports channel">
             <span class="live-tag">LIVE</span>
@@ -264,31 +268,35 @@
         </div>
       </div>
     </div>
- </section>
+  </section>
 
- <section class="section section-continued">
+  <section class="section section-continued">
     <div class="wrap">
-      <div class="swiper-block">
+      <div class="swiper-block rail-block rail-block-movies">
         <div class="swiper-head">
-          <h3>Movies &amp; series</h3>
+          <div class="swiper-heading">
+            <div class="rail-kicker">On-demand entertainment</div>
+            <h3 id="movies-series-heading"><a href="movies-series.html" class="swiper-title-link">Movies &amp; series</a></h3>
+            <p class="rail-summary">Find popular movies and binge-worthy TV series, from action and thrillers to animation and family favorites.</p>
+          </div>
           <div class="swiper-head-actions">
             <div class="swiper-arrows">
-            <button class="swiper-btn prev" data-target="movie-track" aria-label="Previous">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M15 6l-6 6 6 6" stroke="#FFDE87" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </button>
-            <button class="swiper-btn next" data-target="movie-track" aria-label="Next">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M9 6l6 6-6 6" stroke="#FFDE87" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </button>
+              <button class="swiper-btn prev" data-target="movie-track" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M15 6l-6 6 6 6" stroke="#FFDE87" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="swiper-btn next" data-target="movie-track" aria-label="Next">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M9 6l6 6-6 6" stroke="#FFDE87" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
-        <div class="swiper-track" id="movie-track">
+        <div class="swiper-track" id="movie-track" aria-labelledby="movies-series-heading" tabindex="0">
           <div class="movie-slide">
             <img src="swiper-movies/nobody.webp" alt="Nobody poster">
             <div class="play"><svg viewBox="0 0 24 24" fill="#FFDE87">
@@ -634,7 +642,7 @@
     </svg>
   </div>
 
-  
+
 
   <div class="wave bg-black" style="padding-top:0;">
     <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:44px;">
