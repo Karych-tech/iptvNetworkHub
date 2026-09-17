@@ -791,7 +791,15 @@ img {
 
 /* Section generic */
 .section {
-  padding: 90px 0;
+  padding: 60px 0;
+}
+
+/* Continuation sections split out of one logical block (the old
+   #channels section). They keep their own <section> + .wrap, but drop
+   the top padding so the stack still reads as one visual group —
+   the gap between them stays the swiper-block's own margin. */
+.section-continued {
+  padding-top: 0;
 }
 
 .section-head {
@@ -945,6 +953,14 @@ img {
   display: flex;
   align-items: center;
   gap: 18px;
+}
+
+/* Sits under the channel strip, centred — the "view everything" step
+   after the row of previews. */
+.swiper-foot {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
 }
 
 /* "View all channels" — quiet text link that reveals the gold arrow on hover.
