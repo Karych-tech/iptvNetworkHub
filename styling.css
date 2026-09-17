@@ -187,6 +187,34 @@ img {
   align-items: center;
 }
 
+/* The site navigation carries eight items plus the CTA, which overflows
+   the pill between roughly 920px and 1120px. Tighten the gaps and the
+   link size in that band rather than letting the row run into the CTA
+   or wrap onto a second line. */
+@media (max-width:1120px) {
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-links a {
+    font-size: 13.5px;
+  }
+
+  .nav-cta .btn {
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width:1020px) {
+  .nav-links {
+    gap: 13px;
+  }
+
+  .nav-links a {
+    font-size: 12.5px;
+  }
+}
+
 .nav-links a {
   font-size: 14px;
   font-weight: 600;
@@ -1845,6 +1873,142 @@ a[aria-current="page"]:focus-visible {
   .movies-section .section-head { margin-bottom: 30px; }
   .poster-card { width: clamp(145px, 43vw, 165px); }
   .poster-title { font-size: 15px; }
+}
+
+/* ==========================================================================
+   SPORTS PAGE (scoped — does not affect existing pages)
+   ========================================================================== */
+.sports-page .sports-hero {
+  position: relative;
+  overflow: hidden;
+  margin-top: -92px;
+  padding: 158px 0 0;
+  background: var(--black);
+  color: var(--white);
+}
+
+.sports-page .sports-hero .glow-1,
+.sports-page .sports-hero .glow-2 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.sports-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 32px 54px;
+  text-align: center;
+}
+
+.sports-hero .kicker,
+.sports-page .section-head .kicker {
+  color: var(--gold-1);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  margin-bottom: 16px;
+}
+
+.sports-hero h1 { color: var(--white); font-size: clamp(42px, 6vw, 64px); line-height: 1.04; margin-bottom: 20px; }
+.sports-hero p { max-width: 650px; margin: 0 auto 30px; color: rgba(255,255,255,.62); font-size: 17px; }
+.sports-hero .hero-actions { justify-content: center; }
+
+.sports-section { padding: 72px 0 74px; background: var(--white); }
+.sports-section-dark { background: var(--black); color: var(--white); }
+.sports-section-dark h2, .sports-section-dark h3 { color: var(--white); }
+.sports-section-dark .section-head p { color: rgba(255,255,255,.58); }
+.sports-swiper-block { margin-top: 30px; }
+.sports-section .section-head { margin-bottom: 34px; }
+.sports-section + .sports-section { padding-top: 58px; }
+
+/* The sports strips reuse .channel-slide, but these images are mostly
+   brand artwork rather than photographic stills. Forcing them into a
+   16/10 crop with object-fit: cover cut the logos in half and the dark
+   scrim swallowed what was left, so on this page the slide switches to
+a   taller frame that shows the whole logo on its own dark panel, with the
+   caption underneath it instead of floating over the artwork. */
+.sports-page .swiper-track .channel-slide {
+  width: 232px;
+  aspect-ratio: auto;
+  border-radius: var(--radius-md);
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+}
+
+.sports-page .swiper-track .channel-slide img {
+  width: 100%;
+  height: 132px;
+  object-fit: contain;
+  padding: 18px 22px;
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba(255, 222, 135, 0.09), transparent 62%),
+    linear-gradient(180deg, #17150F, #0B0A07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* No scrim: the artwork sits in its own panel above the caption, so there
+   is nothing to darken behind the text and the logos stay crisp. */
+.sports-page .swiper-track .channel-slide::after { content: none; }
+
+.sports-page .swiper-track .channel-slide .caption {
+  position: static;
+  padding: 14px 16px 16px;
+  background: var(--black);
+}
+
+.sports-page .swiper-track .channel-slide .cat {
+  margin-bottom: 5px;
+  color: var(--gold-2);
+  font-weight: 800;
+  letter-spacing: .07em;
+}
+
+.sports-page .swiper-track .channel-slide .name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+@media (max-width: 600px) {
+  .sports-page .swiper-track .channel-slide { width: 170px; }
+  .sports-page .swiper-track .channel-slide img { height: 104px; padding: 14px 16px; }
+  .sports-page .swiper-track .channel-slide .caption { padding: 12px 13px 14px; }
+  .sports-page .swiper-track .channel-slide .name { font-size: 15px; }
+}
+
+.sports-devices { padding: 70px 0 76px; background: var(--black); color: var(--white); }
+.sports-devices h2 { color: var(--white); }
+
+/* The device band is a dark section, so the shared .btn-ghost-light
+   (dark ink on a light border) rendered as an unreadable empty pill.
+   A dark-ghost button is the right pairing on black. */
+.sports-devices .btn-ghost-light {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.sports-devices .btn-ghost-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 222, 135, 0.45);
+  color: var(--gold-1);
+}
+.sports-devices .section-head p { color: rgba(255,255,255,.58); }
+.sports-device-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 850px; margin: 0 auto; }
+.sports-device-list span { border: 1px solid rgba(255,255,255,.14); border-radius: 100px; padding: 12px 20px; color: rgba(255,255,255,.72); font-size: 14px; font-weight: 700; }
+.sports-device-action { justify-content: center; margin-top: 30px; }
+
+@media (max-width: 600px) {
+  .sports-hero { padding-top: 136px; }
+  .sports-hero-inner { padding: 0 20px 42px; }
+  .sports-hero p { font-size: 15px; }
+  .sports-section { padding: 54px 0 58px; }
+  .sports-section .section-head { margin-bottom: 30px; }
+  .sports-device-list { gap: 8px; }
+  .sports-device-list span { padding: 10px 14px; font-size: 12px; }
 }
 
 /* ==========================================================================
