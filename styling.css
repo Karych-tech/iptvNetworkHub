@@ -922,6 +922,69 @@ img {
   color: var(--ink-soft);
 }
 
+/* Device icons (guides section) */
+.guide-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  padding: 8px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+/* Feature icon — the bento-1 artwork IS the empty top space of the card.
+   As a flex child it absorbs all the slack (flex-grow), so it scales up
+   until it hits the card's width or the remaining height. No box, no
+   border: the artwork itself is the decoration. */
+.bento-1 {
+  padding: 0;
+  overflow: hidden;
+}
+
+.bento-1 .guide-icon {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  flex: 1 1 auto;
+  min-height: 150px;
+  align-self: stretch;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: none;
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform .45s ease, filter .45s ease;
+}
+
+.bento-1:hover .guide-icon {
+  transform: scale(1.06);
+  filter: saturate(1.12) brightness(1.03);
+}
+
+/* Card copy gets the padding that the card itself gave up, plus a soft
+   light fade so the artwork blends into the text area instead of cutting. */
+.bento-1 h3,
+.bento-1 p,
+.bento-1 .btn {
+  margin-left: 28px;
+  margin-right: 28px;
+}
+
+.bento-1 > h3 {
+  position: relative;
+  margin-top: -34px;
+  padding-top: 34px;
+  background: linear-gradient(to bottom, rgba(255, 250, 240, 0), rgba(255, 250, 240, 1) 62%);
+}
+
+.bento-1 .btn {
+  margin-bottom: 28px;
+}
+
 .bento-1 {
   grid-column: span 2;
   grid-row: span 2;
@@ -934,36 +997,6 @@ img {
 
 .bento-1 h3 {
   font-size: 24px;
-}
-
-.guide-card-firestick {
-  background-image: linear-gradient(180deg, rgba(11, 10, 7, 0.18), rgba(11, 10, 7, 0.88)),
-    url("assets/images/firestick/downloader-banner.webp");
-  background-position: center;
-  background-size: cover;
-  border-color: rgba(255, 222, 135, 0.28);
-  color: var(--white);
-}
-
-.guide-card-firestick h3,
-.guide-card-firestick p {
-  color: var(--white);
-}
-
-.guide-card-firestick p {
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.guide-card-firestick .btn-ghost-light {
-  color: var(--white);
-  border-color: rgba(255, 255, 255, 0.38);
-  background: rgba(11, 10, 7, 0.3);
-}
-
-.guide-card-firestick .btn-ghost-light:hover {
-  color: var(--black);
-  border-color: var(--gold-1);
-  background: var(--gold-1);
 }
 
 .bento-2 {
@@ -1422,6 +1455,67 @@ img {
   border-radius: 100px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(255, 255, 255, 0.04);
+}
+
+/* Supported devices grid */
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.device-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 28px;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.device-card:hover {
+  border-color: var(--gold-2);
+  transform: translateY(-3px);
+}
+
+.device-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #FFF7E6, var(--paper));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.device-icon img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+}
+
+.device-card h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.device-card p {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+@media (max-width:900px) {
+  .device-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:600px) {
+  .device-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Pricing */
