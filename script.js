@@ -189,7 +189,20 @@
      navigation markup can be reused verbatim on every page.
      ---------------------------------------------------------------------- */
   function initActiveNav() {
-    var here = location.pathname.split('/').pop() || 'index.html';
+    // Resolve a URL path to a canonical form so that both flat pages
+    // ("/guides.html") and clean folder URLs ("/guides/" or "/guides") compare
+    // as the same destination. A trailing "/" or the implicit "index.html" of
+    // a directory is stripped, which makes "./" inside /guides/index.html map
+    // to "/guides" and match the directory itself.
+    function canonicalPath(pathname) {
+      var path = pathname.replace(/index\.html$/i, '');
+      if (path.length > 1) {
+        path = path.replace(/\/+$/, '');
+      }
+      return path || '/';
+    }
+
+    var here = canonicalPath(location.pathname);
 
     var links = document.querySelectorAll('.nav-links a, .nav-mobile a');
     Array.prototype.forEach.call(links, function (link) {
@@ -204,8 +217,16 @@
       // Ignore links that are really just a call to action
       if (link.classList.contains('btn')) return;
 
-      var target = href.split('/').pop();
-      if (target && target === here) {
+      // Resolve the link relative to the current document before comparing,
+      // so "../guides/" and "./" are handled correctly.
+      var resolved;
+      try {
+        resolved = canonicalPath(new URL(href, location.href).pathname);
+      } catch (err) {
+        return;
+      }
+
+      if (resolved === here) {
         link.setAttribute('aria-current', 'page');
       }
     });
