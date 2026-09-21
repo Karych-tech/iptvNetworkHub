@@ -189,11 +189,12 @@
      navigation markup can be reused verbatim on every page.
      ---------------------------------------------------------------------- */
   function initActiveNav() {
-    // Resolve a URL path to a canonical form so that both flat pages
-    // ("/guides.html") and clean folder URLs ("/guides/" or "/guides") compare
-    // as the same destination. A trailing "/" or the implicit "index.html" of
-    // a directory is stripped, which makes "./" inside /guides/index.html map
-    // to "/guides" and match the directory itself.
+    // Resolve a URL path to a canonical form so that a page compares as the
+    // same destination however it is linked. The implicit "index.html" of a
+    // directory and any trailing "/" are stripped, so "/" and "/index.html"
+    // (or "/guides/" and "/guides") match. Flat pages such as
+    // "/iptv-guides.html" and "/what-is-iptv.html" keep their filename and are
+    // compared directly.
     function canonicalPath(pathname) {
       var path = pathname.replace(/index\.html$/i, '');
       if (path.length > 1) {
@@ -218,7 +219,8 @@
       if (link.classList.contains('btn')) return;
 
       // Resolve the link relative to the current document before comparing,
-      // so "../guides/" and "./" are handled correctly.
+      // so relative links such as "index.html" and "iptv-guides.html" are
+      // handled correctly.
       var resolved;
       try {
         resolved = canonicalPath(new URL(href, location.href).pathname);
