@@ -1717,6 +1717,124 @@ img {
   color: var(--gold-1);
 }
 
+/* FAQ toolbar: search field + expand/collapse all */
+.faq-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.faq-search {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+
+.faq-search svg {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+
+.faq-search-input {
+  width: 100%;
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 12px 16px 12px 42px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.faq-search-input::placeholder {
+  color: var(--ink-soft);
+}
+
+.faq-search-input:focus {
+  outline: none;
+  border-color: var(--gold-3);
+  box-shadow: 0 0 0 3px rgba(184, 134, 43, 0.15);
+}
+
+.faq-search-input::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+.faq-toggle-all {
+  flex: none;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--gold-3);
+  background: transparent;
+  border: 1px solid var(--gold-3);
+  border-radius: 999px;
+  padding: 11px 20px;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+
+.faq-toggle-all:hover {
+  background: var(--gold-3);
+  color: var(--white);
+}
+
+.faq-empty {
+  color: var(--ink-soft);
+  font-size: 14px;
+  text-align: center;
+  padding: 22px 0 6px;
+}
+
+.faq-item[hidden] {
+  display: none;
+}
+
+/* Respect reduced-motion: the JS skips the height animation entirely, so no
+   extra rule is needed here beyond keeping the marker transition subtle. */
+.faq-item summary::after {
+  transition: color .2s ease;
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--gold-3);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Dark variant tweaks for the toolbar, used on the guide FAQ */
+.guide-faq .faq-search-input {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.guide-faq .faq-search svg {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.guide-faq .faq-empty {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 520px) {
+  .faq-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .faq-toggle-all {
+    text-align: center;
+  }
+}
+
 /* CTA (dark) */
 .cta-band {
   position: relative;

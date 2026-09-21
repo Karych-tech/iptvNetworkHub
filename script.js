@@ -104,8 +104,102 @@
     var groups = document.querySelectorAll('.faq');
     if (!groups.length) return;
 
+    var reducedMotion = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Smoothly animate an answer open/closed. The native toggle stays the
+    // source of truth: without JS (or with reduced motion) the item simply
+    // snaps, which is the correct fallback.
+    function animatePanel(item, expanding) {
+      var panel = item.querySelector('p');
+      if (!panel || reducedMotion) return;
+
+      var startHeight = panel.offsetHeight;
+      panel.style.overflow = 'hidden';
+
+      if (expanding) {
+        // Measure the natural height, then grow to it.
+        panel.style.height = '0px';
+        var endHeight = panel.scrollHeight;
+        // Force a reflow so the browser commits the 0px start value.
+        void panel.offsetHeight;
+        panel.style.transition = 'height .28s ease, opacity .28s ease';
+        panel.style.height = endHeight + 'px';
+        panel.style.opacity = '1';
+        window.setTimeout(function () { cleanup(panel); }, 300);
+      } else {
+        panel.style.height = startHeight + 'px';
+        void panel.offsetHeight;
+        panel.style.transition = 'height .28s ease, opacity .28s ease';
+        panel.style.height = '0px';
+        panel.style.opacity = '0';
+        window.setTimeout(function () { cleanup(panel); }, 300);
+      }
+
+      function cleanup(el) {
+        el.style.transition = '';
+        el.style.height = '';
+        el.style.overflow = '';
+        el.style.opacity = '';
+      }
+    }
+
     Array.prototype.forEach.call(groups, function (group) {
       var items = group.querySelectorAll('details.faq-item');
+      if (!items.length) return;
+
+      // Hoisted so the toolbar, search and items can all reach the helpers.
+      function isVisible(item) {
+        return !item.hasAttribute('hidden');
+      }
+
+      function visibleItems() {
+        return Array.prototype.filter.call(items, isVisible);
+      }
+
+      // Build the toolbar (search + expand/collapse all) once per group.
+      var searchInput = null;
+      if (!group.hasAttribute('data-no-toolbar')) {
+        var toolbar = document.createElement('div');
+        toolbar.className = 'faq-toolbar';
+
+        var searchWrap = document.createElement('div');
+        searchWrap.className = 'faq-search';
+        searchWrap.innerHTML =
+          '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none">' +
+          '<circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/>' +
+          '<path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
+          '</svg>';
+
+        searchInput = document.createElement('input');
+        searchInput.type = 'search';
+        searchInput.className = 'faq-search-input';
+        searchInput.placeholder = 'Search questions';
+        searchInput.setAttribute('aria-label', 'Search frequently asked questions');
+        searchWrap.appendChild(searchInput);
+
+        var toggleAll = document.createElement('button');
+        toggleAll.type = 'button';
+        toggleAll.className = 'faq-toggle-all';
+        toggleAll.textContent = 'Expand all';
+
+        toolbar.appendChild(searchWrap);
+        toolbar.appendChild(toggleAll);
+        group.insertBefore(toolbar, group.firstChild);
+
+        toggleAll.addEventListener('click', function () {
+          var list = visibleItems();
+          var anyClosed = list.some(function (item) { return !item.open; });
+          Array.prototype.forEach.call(list, function (item) {
+            if (anyClosed) {
+              item.open = true;
+            } else {
+              item.open = false;
+            }
+          });
+          toggleAll.textContent = anyClosed ? 'Collapse all' : 'Expand all';
+        });
+      }
 
       // Optional single-open behaviour
       if (group.hasAttribute('data-accordion')) {
@@ -127,6 +221,11 @@
 
         if (!item.id) item.id = 'faq-item-' + (index + 1);
 
+        // Animate the answer when the item opens or closes.
+        item.addEventListener('toggle', function () {
+          animatePanel(item, item.open);
+        });
+
         summary.addEventListener('click', function () {
           // Let the browser apply the open/closed state first.
           window.setTimeout(function () {
@@ -141,7 +240,58 @@
             }
           }, 0);
         });
+
+        // Keyboard: move focus between questions with the arrow keys, and
+        // jump to the first/last with Home/End. Only visible items count, so
+        // this still behaves while a search filter is active.
+        summary.addEventListener('keydown', function (e) {
+          var list = visibleItems();
+          var i = list.indexOf(item);
+          if (i === -1) return;
+
+          var target = null;
+          if (e.key === 'ArrowDown') target = list[(i + 1) % list.length];
+          else if (e.key === 'ArrowUp') target = list[(i - 1 + list.length) % list.length];
+          else if (e.key === 'Home') target = list[0];
+          else if (e.key === 'End') target = list[list.length - 1];
+          if (!target) return;
+
+          e.preventDefault();
+          var ts = target.querySelector('summary');
+          if (ts) ts.focus();
+        });
       });
+
+      // Live search: hide questions that do not match the query, and show a
+      // "no results" note when nothing matches.
+      if (searchInput) {
+        var empty = document.createElement('p');
+        empty.className = 'faq-empty';
+        empty.textContent = 'No matching questions. Try a different term.';
+        empty.hidden = true;
+        group.appendChild(empty);
+
+        // Pull the question + answer text out once, up front.
+        var haystacks = Array.prototype.map.call(items, function (item) {
+          var q = item.querySelector('summary');
+          var a = item.querySelector('p');
+          return ((q ? q.textContent : '') + ' ' + (a ? a.textContent : ''))
+            .toLowerCase();
+        });
+
+        searchInput.addEventListener('input', function () {
+          var query = searchInput.value.trim().toLowerCase();
+          var matches = 0;
+
+          Array.prototype.forEach.call(items, function (item, i) {
+            var hit = query === '' || haystacks[i].indexOf(query) !== -1;
+            item.hidden = !hit;
+            if (hit) matches++;
+          });
+
+          empty.hidden = matches !== 0;
+        });
+      }
     });
 
     // Open the item named in the URL hash. Runs on load and again on later
