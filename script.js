@@ -148,58 +148,9 @@
       var items = group.querySelectorAll('details.faq-item');
       if (!items.length) return;
 
-      // Hoisted so the toolbar, search and items can all reach the helpers.
-      function isVisible(item) {
-        return !item.hasAttribute('hidden');
-      }
-
-      function visibleItems() {
-        return Array.prototype.filter.call(items, isVisible);
-      }
-
-      // Build the toolbar (search + expand/collapse all) once per group.
-      var searchInput = null;
-      if (!group.hasAttribute('data-no-toolbar')) {
-        var toolbar = document.createElement('div');
-        toolbar.className = 'faq-toolbar';
-
-        var searchWrap = document.createElement('div');
-        searchWrap.className = 'faq-search';
-        searchWrap.innerHTML =
-          '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none">' +
-          '<circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/>' +
-          '<path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
-          '</svg>';
-
-        searchInput = document.createElement('input');
-        searchInput.type = 'search';
-        searchInput.className = 'faq-search-input';
-        searchInput.placeholder = 'Search questions';
-        searchInput.setAttribute('aria-label', 'Search frequently asked questions');
-        searchWrap.appendChild(searchInput);
-
-        var toggleAll = document.createElement('button');
-        toggleAll.type = 'button';
-        toggleAll.className = 'faq-toggle-all';
-        toggleAll.textContent = 'Expand all';
-
-        toolbar.appendChild(searchWrap);
-        toolbar.appendChild(toggleAll);
-        group.insertBefore(toolbar, group.firstChild);
-
-        toggleAll.addEventListener('click', function () {
-          var list = visibleItems();
-          var anyClosed = list.some(function (item) { return !item.open; });
-          Array.prototype.forEach.call(list, function (item) {
-            if (anyClosed) {
-              item.open = true;
-            } else {
-              item.open = false;
-            }
-          });
-          toggleAll.textContent = anyClosed ? 'Collapse all' : 'Expand all';
-        });
-      }
+      // Keyboard: move focus between questions with the arrow keys, and
+      // jump to the first/last with Home/End.
+      var list = Array.prototype.slice.call(items);
 
       // Optional single-open behaviour
       if (group.hasAttribute('data-accordion')) {
@@ -242,10 +193,8 @@
         });
 
         // Keyboard: move focus between questions with the arrow keys, and
-        // jump to the first/last with Home/End. Only visible items count, so
-        // this still behaves while a search filter is active.
+        // jump to the first/last with Home/End.
         summary.addEventListener('keydown', function (e) {
-          var list = visibleItems();
           var i = list.indexOf(item);
           if (i === -1) return;
 
@@ -261,37 +210,6 @@
           if (ts) ts.focus();
         });
       });
-
-      // Live search: hide questions that do not match the query, and show a
-      // "no results" note when nothing matches.
-      if (searchInput) {
-        var empty = document.createElement('p');
-        empty.className = 'faq-empty';
-        empty.textContent = 'No matching questions. Try a different term.';
-        empty.hidden = true;
-        group.appendChild(empty);
-
-        // Pull the question + answer text out once, up front.
-        var haystacks = Array.prototype.map.call(items, function (item) {
-          var q = item.querySelector('summary');
-          var a = item.querySelector('p');
-          return ((q ? q.textContent : '') + ' ' + (a ? a.textContent : ''))
-            .toLowerCase();
-        });
-
-        searchInput.addEventListener('input', function () {
-          var query = searchInput.value.trim().toLowerCase();
-          var matches = 0;
-
-          Array.prototype.forEach.call(items, function (item, i) {
-            var hit = query === '' || haystacks[i].indexOf(query) !== -1;
-            item.hidden = !hit;
-            if (hit) matches++;
-          });
-
-          empty.hidden = matches !== 0;
-        });
-      }
     });
 
     // Open the item named in the URL hash. Runs on load and again on later
