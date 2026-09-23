@@ -2057,6 +2057,132 @@ a[aria-current="page"]:focus-visible {
   margin: 28px auto 34px;
 }
 
+/* ---- Guide article extras (what-is-iptv.html and later guides) -------
+   In-article figures and the terminology table reuse the same content
+   width, radius, border and paper background as .guide-image, so a
+   long-form guide still reads as part of the same design system. */
+
+.guide-content-image {
+  max-width: 760px;
+  margin: 30px auto 36px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--black);
+}
+
+.guide-content-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The caption sits below the artwork on a paper strip, so it stays
+   readable whether or not the image has loaded yet. */
+.guide-content-image figcaption {
+  padding: 12px 18px;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* Terminology table. Wrapped so it scrolls sideways instead of pushing
+   the page wide on a phone. */
+.guide-table-wrap {
+  max-width: 760px;
+  margin: 8px auto 30px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  -webkit-overflow-scrolling: touch;
+}
+
+.guide-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  text-align: left;
+}
+
+.guide-table caption {
+  caption-side: top;
+  padding: 14px 20px 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  text-align: left;
+}
+
+.guide-table th,
+.guide-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.guide-table th {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--gold-3);
+  background: rgba(251, 250, 247, 0.92);
+}
+
+.guide-table tbody tr:last-child th,
+.guide-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.guide-table tbody th {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  background: transparent;
+  white-space: normal;
+}
+
+.guide-table td {
+  color: var(--ink-soft);
+}
+
+.guide-table code {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--ink);
+}
+
+/* Answers inside the guide FAQ are body copy, so they get a slightly
+   wider measure than the site-wide .faq-item p default. */
+.guide-content .faq-item p {
+  font-size: 14.5px;
+}
+
+@media (max-width:640px) {
+  .guide-content-image,
+  .guide-table-wrap {
+    margin-top: 24px;
+    margin-bottom: 28px;
+  }
+
+  .guide-content-image figcaption {
+    padding: 10px 14px;
+  }
+
+  .guide-table th,
+  .guide-table td {
+    padding: 12px 14px;
+  }
+}
+
 .guide-faq {
   margin-top: 24px;
 }
