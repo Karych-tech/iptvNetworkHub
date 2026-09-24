@@ -544,10 +544,22 @@ img {
 @media (max-width:900px) {
   .hero-grid {
     grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
   }
 
   .hero h1 {
     font-size: 40px;
+  }
+
+  .hero h1,
+  .hero p.lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
   }
 }
 
@@ -787,16 +799,41 @@ img {
   .intro-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+    justify-items: center;
   }
 
   .intro-content {
     text-align: center;
+    width: 100%;
   }
 
   .intro h2,
   .intro p {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .intro-content .hero-actions {
+    justify-content: center;
+  }
+
+  /* Stats: icon on top, number and label centered underneath */
+  .stat-list {
+    width: 100%;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .stat-item {
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .stat-item > div:last-child {
+    text-align: center;
   }
 }
 
