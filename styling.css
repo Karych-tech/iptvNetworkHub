@@ -1863,6 +1863,34 @@ footer {
   color: var(--gold-1);
 }
 
+.footer-col .footer-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #4FBF74;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.footer-col .footer-whatsapp svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  fill: currentColor;
+}
+
+.footer-col .footer-whatsapp:hover {
+  color: #7FD89B;
+}
+
+.footer-col .footer-contact-note {
+  margin-top: 12px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  max-width: 240px;
+  color: rgba(255, 255, 255, 0.42);
+}
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -1872,12 +1900,6 @@ footer {
   padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 13px;
-}
-
-@media (max-width:760px) {
-  .footer-top {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 /* ==========================================================================
@@ -2203,6 +2225,36 @@ a[aria-current="page"]:focus-visible {
   font-size: 14.5px;
 }
 
+/* ---- Timeline on a light background ---------------------------------
+   The shared .timeline is built for the dark .how-section: its cards use
+   translucent white fills, borders and text, which disappear entirely on
+   the white page a guide article sits on. This variant keeps the same
+   structure and gold step badges, but swaps those values for the light
+   surfaces already used by .device-card and .bento-card, so the section
+   reads as part of the article instead of a black band dropped into it.
+   The homepage version is untouched. */
+
+.guide-content .timeline {
+  margin: 26px 0 34px;
+}
+
+.guide-content .t-step {
+  background: var(--paper);
+  border-color: var(--line);
+}
+
+.guide-content .t-step h3 {
+  color: var(--ink);
+}
+
+.guide-content .t-step p {
+  color: var(--ink-soft);
+}
+
+.guide-content .t-step .idx {
+  margin-bottom: 16px;
+}
+
 @media (max-width:640px) {
   .guide-content-image,
   .guide-table-wrap {
@@ -2230,6 +2282,98 @@ a[aria-current="page"]:focus-visible {
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 54px;
+}
+
+/* Child-guide navigation for a hub guide (Smart TV, Android). Hub pages are
+   the entry point for a family of device guides, so they carry a grid of
+   cards that route the reader to the right child page instead of ending in a
+   single "next" button. Two columns, so four cards form a balanced 2x2 block
+   instead of wrapping a lone card onto a row of its own. */
+.guide-children {
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+
+@media (max-width:640px) {
+  .guide-children {
+    grid-template-columns: 1fr;
+  }
+}
+
+.guide-child {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  text-decoration: none;
+  transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+.guide-child:hover,
+.guide-child:focus-visible {
+  border-color: var(--gold-2);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(17, 17, 17, .08);
+}
+
+.guide-child:focus-visible {
+  outline: 3px solid var(--gold-2);
+  outline-offset: 2px;
+}
+
+.guide-child-tag {
+  align-self: flex-start;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(230, 185, 77, .16);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.guide-child h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: var(--ink);
+}
+
+.guide-child p {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.guide-child-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--ink);
+  transition: gap .25s ease;
+}
+
+.guide-child-more svg {
+  width: 16px;
+  height: 16px;
+}
+
+.guide-child:hover .guide-child-more {
+  gap: 12px;
+}
+
+.guide-child:hover .guide-child-more svg {
+  transform: translateX(4px);
 }
 
 @media (max-width:640px) {
@@ -2489,9 +2633,51 @@ a[aria-current="page"]:focus-visible {
   font-size: 25px;
 }
 
+/* The library now holds an overview row and a platform row, separated by a
+   small heading. The platform tiles are smaller, so they tile three or four
+   across instead of filling half the width each. */
+.guides-subhead {
+  margin: 52px 0 20px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px;
+  color: var(--ink);
+}
+
+.guides-grid-compact {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* Let each tile size to its own content. The 1fr rows inherited from
+     .guides-grid stretch the shorter cards, which turns square device icons
+     into tall, badly cropped panels. */
+  grid-auto-rows: auto;
+}
+
+.guides-grid-compact .guide-card-media {
+  aspect-ratio: 16 / 10;
+}
+
+.guides-grid-compact .guide-card-media-pad img {
+  max-height: 108px;
+}
+
+.guides-grid-compact .guide-card-body h3 {
+  font-size: 17px;
+}
+
+.guides-grid-compact .guide-card-body p {
+  font-size: 13.5px;
+}
+
 @media (max-width:1024px) {
   .guides-grid {
     gap: 20px;
+  }
+
+  .guides-grid-compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guides-subhead {
+    margin-top: 42px;
   }
 }
 
