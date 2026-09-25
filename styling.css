@@ -413,17 +413,7 @@ img {
     background: rgba(230, 185, 77, 0.08);
   }    
 
-  .nav-mobile {
-    left: auto;
-    right: calc(14px + (100vw - 100%));
-    width: min(320px, calc(100vw - 40px));
-    max-width: none;
-    margin: 8px 0 0;
-    transform: translateX(16px);
-    transform-origin: top right;
-    transition: opacity .34s ease, transform .34s cubic-bezier(.22, .61, .36, 1),
-      visibility 0s linear .34s;
-  }
+ 
 
   .nav-mobile.open {
     transform: translateX(0);
