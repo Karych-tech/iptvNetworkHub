@@ -1902,6 +1902,40 @@ footer {
   font-size: 13px;
 }
 
+/* Footer breakpoints. The desktop grid is four fixed columns with a 40px
+   gap, which cannot shrink below ~640px — it overflows the viewport and
+   leaves a strip of empty space at the right edge of the page on phones.
+   Collapse it to two columns on tablets and a single stacked column on
+   small screens, and let the bottom bar centre itself once it wraps. */
+@media (max-width:900px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width:600px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-brand p,
+  .footer-col .footer-contact-note {
+    max-width: none;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
 /* ==========================================================================
    ACCESSIBILITY — visible focus states and reduced-motion support
    ========================================================================== */
