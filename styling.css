@@ -399,16 +399,27 @@ img {
 }
 
 @media (max-width:920px) {
+  .nav-outer {
+    top: 12px;
+    padding: 0 14px;
+  }
+
+  .nav {
+    min-height: 58px;
+    padding: 8px 10px 8px 18px;
+    border-radius: 18px;
+  }
+
   .nav-links {
     display: none;
   }
 
   .nav-mobile {
     left: auto;
-    right: 20px;
+    right: calc(6px + 50vw - 50%);
     width: min(320px, calc(100vw - 40px));
     max-width: none;
-    margin: 10px 0 0;
+    margin: 8px 0 0;
     transform: translateX(16px);
     transform-origin: top right;
     transition: opacity .34s ease, transform .34s cubic-bezier(.22, .61, .36, 1),
@@ -424,6 +435,11 @@ img {
   .menu-toggle {
     /* flex, not block — the bars are centred by the flex column layout. */
     display: flex;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(230, 185, 77, 0.35);
+    border-radius: 50%;
+    background: rgba(230, 185, 77, 0.08);
   }
 
   /* On small screens the header CTA is dropped entirely: the bar would be
