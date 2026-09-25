@@ -403,6 +403,24 @@ img {
     display: none;
   }
 
+  .nav-mobile {
+    left: auto;
+    right: 20px;
+    width: min(320px, calc(100vw - 40px));
+    max-width: none;
+    margin: 10px 0 0;
+    transform: translateX(16px);
+    transform-origin: top right;
+    transition: opacity .34s ease, transform .34s cubic-bezier(.22, .61, .36, 1),
+      visibility 0s linear .34s;
+  }
+
+  .nav-mobile.open {
+    transform: translateX(0);
+    transition: opacity .34s ease, transform .34s cubic-bezier(.22, .61, .36, 1),
+      visibility 0s;
+  }
+
   .menu-toggle {
     /* flex, not block — the bars are centred by the flex column layout. */
     display: flex;
@@ -418,6 +436,12 @@ img {
      entry in the links list on small screens, so showing it twice is noise. */
   .nav-mobile .nav-mobile-cta {
     display: none;
+  }
+}
+
+@media (max-width:920px) and (prefers-reduced-motion: reduce) {
+  .nav-mobile {
+    transition: none;
   }
 }
 
