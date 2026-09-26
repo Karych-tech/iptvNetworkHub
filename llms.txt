@@ -1,0 +1,44 @@
+# IPTVNetworkHub
+
+> IPTVNetworkHub is an IPTV streaming service offering live TV, live sports, news, movies and series in a single subscription, with setup guides for Smart TV, Android TV, Amazon Fire TV Stick, Android, iPhone/iPad, Windows and Mac. Plans start at €15 and every plan includes a one-day free trial.
+
+Key facts for agents:
+
+- Pricing: €15 / 1 month, €30 / 3 months, €49 / 12 months. All plans include 19,000+ live channels, 35,000+ movies and series, HD/Full HD/4K where available, and TV guide (EPG).
+- Free trial: new subscribers get a one-day free trial on any plan.
+- Contract: no long-term contracts; subscriptions can be cancelled.
+- Hardware: no satellite dish or cable box is required — IPTV is delivered over an internet connection.
+- Support and orders are handled over WhatsApp at +44 7938 593704 (https://wa.me/447938593704).
+- Content and pricing details on this site are informational; orders are confirmed through WhatsApp support.
+
+## Main pages
+
+- [Home](https://iptvnetworkhub.com/): Overview of the service, pricing plans, supported devices, popular guides and FAQs.
+- [Live TV channels](https://iptvnetworkhub.com/channels.html): Channel guide covering live sports, news, movies, kids, documentary and entertainment channels.
+- [Sports & football](https://iptvnetworkhub.com/sports.html): Live sports coverage — football, basketball, cricket, motorsport and more.
+- [Movies & Series](https://iptvnetworkhub.com/movies-series.html): On-demand movies and TV series, including action, thriller, drama, animation and family titles.
+- [Contact](https://iptvnetworkhub.com/contact.html): How to reach support to start a free trial or get setup help.
+- [About](https://iptvnetworkhub.com/about.html): What IPTVNetworkHub is and what the service provides.
+- [IPTV Guides](https://iptvnetworkhub.com/iptv-guides.html): Index of all setup and how-to guides.
+
+## Setup guides
+
+- [What is IPTV and how does it work?](https://iptvnetworkhub.com/what-is-iptv.html): Beginner introduction to IPTV, live TV streaming, playlists and compatible devices.
+- [IPTV on Smart TV](https://iptvnetworkhub.com/iptv-on-smart-tv.html): General Smart TV setup guide.
+- [IPTV on Samsung Smart TV](https://iptvnetworkhub.com/iptv-on-samsung-smart-tv.html): Setup steps specific to Samsung Smart TV devices.
+- [IPTV on LG Smart TV](https://iptvnetworkhub.com/iptv-on-lg-smart-tv.html): Setup steps specific to LG Smart TV devices.
+- [IPTV on Android](https://iptvnetworkhub.com/iptv-on-android.html): Using IPTV on Android phones and tablets.
+- [IPTV on Android TV](https://iptvnetworkhub.com/iptv-on-android-tv.html): Setup for Android TV boxes and Android TV devices.
+- [IPTV on Firestick](https://iptvnetworkhub.com/iptv-on-firestick.html): Setting up IPTV on an Amazon Fire TV Stick.
+- [Login details guide](https://iptvnetworkhub.com/iptv-login-details.html): How to use the access details supplied after ordering.
+
+## Policies
+
+- [Terms of service](https://iptvnetworkhub.com/terms.html): Terms governing use of the service.
+- [Privacy policy](https://iptvnetworkhub.com/privacy.html): What data is collected and how it is handled.
+- [Refund policy](https://iptvnetworkhub.com/refund.html): Refund terms and conditions.
+
+## Optional
+
+- [Sitemap](https://iptvnetworkhub.com/sitemap.xml): Machine-readable list of all indexable pages.
+- [AI catalog manifest](https://iptvnetworkhub.com/.well-known/ai-catalog.json): Agentic Resource Discovery (ARD) catalog describing this publisher and its agent-facing resources.
