@@ -1861,7 +1861,9 @@ footer {
   color: rgba(255, 255, 255, 0.78);
 }
 
-.footer-col h4 {
+/* h3 (not h4) so the footer does not skip a level after the page's h2
+   sections. Styled identically to the previous h4. */
+.footer-col h3 {
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 16px;
