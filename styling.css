@@ -32,6 +32,9 @@
   --gold-1: #FFDE87;
   --gold-2: #E6B94D;
   --gold-3: #B8862B;
+  /* Darkened gold for small text on light backgrounds. --gold-3 only reaches
+     3.24:1 on white, which fails the 4.5:1 minimum for body-sized text. */
+  --gold-ink: #8A6414;
   --radius-lg: 26px;
   --radius-md: 18px;
 }
@@ -411,9 +414,9 @@ img {
     border: 1px solid rgba(230, 185, 77, 0.35);
     border-radius: 50%;
     background: rgba(230, 185, 77, 0.08);
-  }    
+  }
 
- 
+
 
   .nav-mobile.open {
     transform: translateX(0);
@@ -421,7 +424,7 @@ img {
       visibility 0s;
   }
 
-  
+
   /* On small screens the header CTA is dropped entirely: the bar would be
      too crowded next to the logo and the menu button. */
   .nav-cta {
@@ -921,7 +924,7 @@ img {
 .section-head .kicker {
   font-size: 13px;
   font-weight: 700;
-  color: var(--gold-3);
+  color: var(--gold-ink);
   margin-bottom: 14px;
 }
 
@@ -1146,7 +1149,7 @@ img {
 
 .rail-kicker {
   margin-bottom: 6px;
-  color: var(--gold-3);
+  color: var(--gold-ink);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: .12em;
@@ -1855,6 +1858,7 @@ footer {
 .footer-brand p {
   font-size: 14px;
   max-width: 280px;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .footer-col h4 {
@@ -1902,7 +1906,7 @@ footer {
   font-size: 12.5px;
   line-height: 1.6;
   max-width: 240px;
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .footer-bottom {
@@ -2822,8 +2826,7 @@ a[aria-current="page"]:focus-visible {
   text-align: center;
 }
 
-.movies-hero .kicker,
-.movies-page .section-head .kicker {
+.movies-hero .kicker {
   color: var(--gold-1);
   font-size: 13px;
   font-weight: 800;
@@ -2855,6 +2858,12 @@ a[aria-current="page"]:focus-visible {
 .movies-section-dark {
   background: var(--black);
   color: var(--white);
+}
+
+/* The darkened gold used on light sections is unreadable on black; these
+   dark bands keep the bright accent. */
+.movies-section-dark .kicker {
+  color: var(--gold-1);
 }
 
 .movies-section-dark h2,
@@ -2953,8 +2962,7 @@ a[aria-current="page"]:focus-visible {
   text-align: center;
 }
 
-.sports-hero .kicker,
-.sports-page .section-head .kicker {
+.sports-hero .kicker {
   color: var(--gold-1);
   font-size: 13px;
   font-weight: 800;
@@ -2968,6 +2976,7 @@ a[aria-current="page"]:focus-visible {
 
 .sports-section { padding: 72px 0 74px; background: var(--white); }
 .sports-section-dark { background: var(--black); color: var(--white); }
+.sports-section-dark .kicker { color: var(--gold-1); }
 .sports-section-dark h2, .sports-section-dark h3 { color: var(--white); }
 .sports-section-dark .section-head p { color: rgba(255,255,255,.58); }
 .sports-swiper-block { margin-top: 30px; }
@@ -3806,6 +3815,62 @@ a   taller frame that shows the whole logo on its own dark panel, with the
   font-size: 12.5px;
   color: rgba(255, 244, 210, 0.64);
   text-align: center;
+}
+
+/* Field-level errors injected by the Formspree Ajax SDK */
+.form-error {
+  display: block;
+  margin-top: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #FFB4A8;
+}
+
+.form-error:empty {
+  margin-top: 0;
+}
+
+.form-field input[aria-invalid="true"],
+.form-field textarea[aria-invalid="true"] {
+  border-color: #E4573D;
+  box-shadow: 0 0 0 4px rgba(228, 87, 61, 0.16);
+}
+
+/* Form-level status messages (success / submission error) */
+.form-status {
+  margin-top: 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  border-radius: 14px;
+  padding: 0;
+}
+
+.form-status:not(:empty) {
+  padding: 12px 16px;
+}
+
+.form-status-error {
+  color: #FFC7BC;
+  background: rgba(228, 87, 61, 0.14);
+  border: 1px solid rgba(228, 87, 61, 0.4);
+}
+
+.form-status-success {
+  color: var(--gold-1);
+  background: rgba(255, 222, 135, 0.12);
+  border: 1px solid rgba(255, 222, 135, 0.36);
+}
+
+/* Spam honeypot — hidden from humans, still submitted for bots to fill */
+.form-hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 @media (max-width:860px) {

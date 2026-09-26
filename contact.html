@@ -130,28 +130,44 @@
           </ul>
         </div>
 
-        <form id="contact-form" class="contact-form" action="mailto:Rizqiismail19@gmail.com" method="post"
-          enctype="text/plain">
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xjykazgp" method="POST">
           <div class="form-row">
             <div class="form-field">
               <label for="name">Full name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required>
+              <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required
+                data-fs-field>
             </div>
             <div class="form-field">
               <label for="email">Email address</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required
+                data-fs-field>
+              <span class="form-error" data-fs-error="email"></span>
             </div>
           </div>
           <div class="form-field">
             <label for="subject">Subject</label>
-            <input id="subject" name="subject" type="text" placeholder="How can we help?" required>
+            <input id="subject" name="subject" type="text" placeholder="How can we help?" required data-fs-field>
+            <span class="form-error" data-fs-error="subject"></span>
           </div>
           <div class="form-field">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" placeholder="Tell us a little more..." required></textarea>
+            <textarea id="message" name="message" rows="6" placeholder="Tell us a little more..." required
+              data-fs-field></textarea>
+            <span class="form-error" data-fs-error="message"></span>
           </div>
-          <button type="submit" class="btn btn-grad">Send message</button>
-          <p class="form-note">This opens your email app addressed to Rizqiismail19@gmail.com.</p>
+
+          <label class="form-hp" aria-hidden="true">Leave this field empty
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </label>
+
+          <input type="hidden" name="_subject" value="New message from IPTVNetworkHub contact form">
+          <input type="hidden" name="page" value="contact.html">
+
+          <button type="submit" class="btn btn-grad" data-fs-submit-btn>Send message</button>
+
+          <p class="form-note">We reply to the email address you provide, usually within 24 hours.</p>
+          <p class="form-status form-status-error" data-fs-error role="alert"></p>
+          <p class="form-status form-status-success" data-fs-success role="status"></p>
         </form>
       </div>
     </section>
@@ -219,6 +235,12 @@
       </div>
     </div>
   </footer>
+  <script>
+    // Queue the Formspree Ajax SDK call before the deferred library loads.
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contact-form', formId: 'xjykazgp' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   <script src="script.js"></script>
 </body>
 
