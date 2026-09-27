@@ -64,40 +64,152 @@
         "description": "Explore IPTV live TV, sports, news, movies and series, plus setup guides and plans for compatible devices from IPTVNetworkHub.",
         "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
         "about": { "@id": "https://iptvnetworkhub.com/#service" },
-        "primaryImageOfPage": { "@id": "https://iptvnetworkhub.com/#hero-image" }
+        "primaryImageOfPage": { "@id": "https://iptvnetworkhub.com/#hero-image" },
+        "mainEntity": { "@id": "https://iptvnetworkhub.com/#product" }
       },
       {
-        "@type": "Offer",
-        "@id": "https://iptvnetworkhub.com/#offer-1month",
-        "name": "1 Month",
-        "description": "1 month IPTV subscription",
-        "price": "15",
-        "priceCurrency": "EUR",
+        "@type": "Product",
+        "@id": "https://iptvnetworkhub.com/#product",
+        "name": "IPTVNetworkHub IPTV Subscription",
+        "description": "IPTV subscription with 19,000+ live channels and 35,000+ movies and series in HD, Full HD or 4K where available, including TV guide (EPG) and support for Smart TV, Android TV, Fire TV Stick, Android, iPhone, iPad, Windows and Mac.",
         "url": "https://iptvnetworkhub.com/#pricing",
-        "availability": "https://schema.org/InStock",
-        "itemOffered": { "@id": "https://iptvnetworkhub.com/#service" }
+        "image": [
+          "https://iptvnetworkhub.com/assets/images/hero/hero-tv.webp"
+        ],
+        "brand": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "category": "IPTV streaming service",
+        "offers": [
+          {
+            "@type": "Offer",
+            "@id": "https://iptvnetworkhub.com/#offer-1month",
+            "name": "1 Month",
+            "description": "1 month IPTV subscription",
+            "price": "15.00",
+            "priceCurrency": "EUR",
+            "url": "https://iptvnetworkhub.com/#pricing",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "itemOffered": { "@id": "https://iptvnetworkhub.com/#product" }
+          },
+          {
+            "@type": "Offer",
+            "@id": "https://iptvnetworkhub.com/#offer-3months",
+            "name": "3 Months",
+            "description": "3 month IPTV subscription",
+            "price": "30.00",
+            "priceCurrency": "EUR",
+            "url": "https://iptvnetworkhub.com/#pricing",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "itemOffered": { "@id": "https://iptvnetworkhub.com/#product" }
+          },
+          {
+            "@type": "Offer",
+            "@id": "https://iptvnetworkhub.com/#offer-12months",
+            "name": "12 Months",
+            "description": "12 month IPTV subscription",
+            "price": "49.00",
+            "priceCurrency": "EUR",
+            "url": "https://iptvnetworkhub.com/#pricing",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "itemOffered": { "@id": "https://iptvnetworkhub.com/#product" }
+          }
+        ]
       },
       {
-        "@type": "Offer",
-        "@id": "https://iptvnetworkhub.com/#offer-3months",
-        "name": "3 Months",
-        "description": "3 month IPTV subscription",
-        "price": "30",
-        "priceCurrency": "EUR",
-        "url": "https://iptvnetworkhub.com/#pricing",
-        "availability": "https://schema.org/InStock",
-        "itemOffered": { "@id": "https://iptvnetworkhub.com/#service" }
-      },
-      {
-        "@type": "Offer",
-        "@id": "https://iptvnetworkhub.com/#offer-12months",
-        "name": "12 Months",
-        "description": "12 month IPTV subscription",
-        "price": "49",
-        "priceCurrency": "EUR",
-        "url": "https://iptvnetworkhub.com/#pricing",
-        "availability": "https://schema.org/InStock",
-        "itemOffered": { "@id": "https://iptvnetworkhub.com/#service" }
+        "@type": "FAQPage",
+        "@id": "https://iptvnetworkhub.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What do I need to use IPTVNetworkHub?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You need a reliable internet connection and a compatible device, such as a Smart TV, Android TV device, Fire TV Stick, smartphone, tablet or computer. Once your subscription is active, follow the setup instructions for your device and sign in to start watching."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which devices are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IPTVNetworkHub is designed to work across a range of supported devices, including compatible Smart TVs, Android TV devices, Amazon Fire TV Stick, Android phones and tablets, iPhone and iPad, Windows and Mac computers. Device compatibility can vary by model and operating system."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How quickly can I start watching?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Once your order is completed and your access details are provided, you can set up your supported device and start watching. The exact setup time depends on the device and app you are using."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I watch on more than one device?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can install the service on supported devices, while the number of devices that can stream at the same time depends on the subscription you choose. Contact support if you need simultaneous streaming for multiple screens."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer a free trial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. New subscribers can try the service with a one-day free trial. The trial lets you explore the available content and streaming experience before deciding whether to continue with a paid plan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I cancel my subscription?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. There are no long-term contracts, so you can choose not to continue with your subscription. If you are currently on a trial, make sure to cancel according to the instructions provided before the trial period ends if you do not want to continue."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What internet speed do I need?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A stable broadband connection is recommended for a smooth streaming experience. The connection speed you need can vary depending on video quality, the device you are using and how many devices are streaming at the same time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What picture quality is available?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Available picture quality depends on the channel, movie or series, your device and your internet connection. Supported content may be available in HD, Full HD or 4K where provided."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is a satellite dish or cable box required?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No satellite dish is required. IPTV is delivered over an internet connection, allowing you to watch through compatible streaming devices without a traditional satellite setup."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after I choose a plan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "After completing your order, you receive the information needed to set up your service. Follow the device-specific instructions, sign in, and open the guide to browse live channels and available on-demand content."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I need help setting up my device?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our setup guides walk you through the installation process for supported devices. If you still need assistance, contact our support team and provide the device you are using so we can point you in the right direction."
+            }
+          }
+        ]
       }
     ]
   }
