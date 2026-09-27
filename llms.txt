@@ -41,4 +41,4 @@ Key facts for agents:
 ## Optional
 
 - [Sitemap](https://iptvnetworkhub.com/sitemap.xml): Machine-readable list of all indexable pages.
-- [AI catalog manifest](https://iptvnetworkhub.com/.well-known/ai-catalog.json): Agentic Resource Discovery (ARD) catalog describing this publisher and its agent-facing resources.
+- [AI catalog manifest (ARD)](https://iptvnetworkhub.com/.well-known/ard.json): Agentic Resource Discovery manifest describing this publisher and its agent-facing resources.

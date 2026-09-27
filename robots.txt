@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://iptvnetworkhub.com/sitemap.xml
+
+# Agentic Resource Discovery (ARD) manifest
+Agentmap: https://iptvnetworkhub.com/.well-known/ard.json
