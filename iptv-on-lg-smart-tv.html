@@ -29,15 +29,38 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://iptvnetworkhub.com/#organization",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://iptvnetworkhub.com/#website",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/",
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
         "@type": "Article",
         "@id": "https://iptvnetworkhub.com/iptv-on-lg-smart-tv.html#article",
         "headline": "How to Set Up IPTV on LG Smart TV (webOS) - Complete Guide",
         "description": "A complete guide to preparing an LG Smart TV, installing a compatible IPTV player from the LG Content Store, signing in with provider details, loading EPG and troubleshooting playback.",
-        "mainEntityOfPage": {"@id": "https://iptvnetworkhub.com/iptv-on-lg-smart-tv.html"},
+        "mainEntityOfPage": { "@id": "https://iptvnetworkhub.com/iptv-on-lg-smart-tv.html#webpage" },
         "image": "https://iptvnetworkhub.com/assets/images/guides/smart-tv.webp",
-        "author": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
-        "publisher": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
         "dateModified": "2026-09-17"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://iptvnetworkhub.com/iptv-on-lg-smart-tv.html#webpage",
+        "name": "How to Set Up IPTV on LG Smart TV (webOS) - Complete Guide",
+        "url": "https://iptvnetworkhub.com/iptv-on-lg-smart-tv.html",
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+        "about": { "@id": "https://iptvnetworkhub.com/#service" },
+        "mainEntity": { "@id": "https://iptvnetworkhub.com/iptv-on-lg-smart-tv.html#article" }
       },
       {
         "@type": "BreadcrumbList",
@@ -48,34 +71,7 @@
           {"@type": "ListItem", "position": 3, "name": "IPTV on Smart TV", "item": "https://iptvnetworkhub.com/iptv-on-smart-tv.html"},
           {"@type": "ListItem", "position": 4, "name": "IPTV on LG Smart TV", "item": "https://iptvnetworkhub.com/iptv-on-lg-smart-tv.html"}
         ]
-      },
-      {
-        "@type": "HowTo",
-        "name": "How to set up IPTV on an LG Smart TV",
-        "description": "Prepare an LG webOS TV, install a compatible IPTV player from the LG Content Store and configure provider access.",
-        "totalTime": "PT15M",
-        "step": [
-          {"@type": "HowToStep", "name": "Check the TV model and webOS version", "text": "Open Settings, General and About This TV to check the model and webOS version, then install any pending software updates."},
-          {"@type": "HowToStep", "name": "Connect the TV to the internet", "text": "Use Ethernet where possible, or join a strong 5 GHz Wi-Fi network, and confirm the TV is online."},
-          {"@type": "HowToStep", "name": "Install a compatible IPTV player", "text": "Open the LG Content Store from the Home dashboard, search for a compatible IPTV player, install it and open it."},
-          {"@type": "HowToStep", "name": "Enter your provider details", "text": "Choose the login method your provider supports, such as Xtream Codes API or an M3U playlist, and enter the supplied details exactly."},
-          {"@type": "HowToStep", "name": "Load channels and the EPG", "text": "Let the player download its categories and programme guide, then open Live TV, Movies or Series and test playback."}
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {"@type": "Question", "name": "Can I install IPTV on an LG Smart TV?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if a compatible IPTV player is available in the LG Content Store for your TV model and webOS version. You install the player and sign in with details from a service you are authorized to use."}},
-          {"@type": "Question", "name": "Which LG TVs support IPTV players?", "acceptedAnswer": {"@type": "Answer", "text": "webOS 3.0 and newer sets have the widest player choice, and recent webOS 6 or webOS 2022 and later models are best supported. Very old netcast or early webOS models may have no suitable player."}},
-          {"@type": "Question", "name": "Is there an official IPTV app for LG Smart TV?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single official IPTV app. Several compatible players are published for LG webOS TVs, and availability varies by country and model year."}},
-          {"@type": "Question", "name": "How do I install an app on an LG Smart TV?", "acceptedAnswer": {"@type": "Answer", "text": "Press the Home button, open the LG Content Store, search for the app, then select Install. The app appears in the Home dashboard launcher once installed."}},
-          {"@type": "Question", "name": "How do I enter IPTV login details on an LG TV?", "acceptedAnswer": {"@type": "Answer", "text": "Open the player, choose its provider login method and enter the username, password and server or portal address supplied by your provider using the LG Magic Remote or the on-screen keyboard."}},
-          {"@type": "Question", "name": "How do I add the EPG on an LG webOS TV?", "acceptedAnswer": {"@type": "Answer", "text": "Guide data often loads automatically with the playlist. If the guide is empty or an hour out, use the player's EPG option and your provider's configuration details, and check the TV's time zone setting."}},
-          {"@type": "Question", "name": "Why does my LG TV IPTV app keep buffering?", "acceptedAnswer": {"@type": "Answer", "text": "Check the Wi-Fi signal or switch to Ethernet, restart the router and TV, reduce other network activity, update the player and test another channel before reinstalling anything."}},
-          {"@type": "Question", "name": "Can I use IPTV on an LG TV without a set-top box?", "acceptedAnswer": {"@type": "Answer", "text": "Often yes, when a compatible player is available for your webOS version. Otherwise a supported external device such as a Fire TV Stick or Android TV box is the practical alternative."}}
-        ]
-      }
-    ]
+      }]
   }
  </script>
 </head>

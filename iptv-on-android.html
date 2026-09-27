@@ -29,15 +29,38 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://iptvnetworkhub.com/#organization",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://iptvnetworkhub.com/#website",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/",
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
         "@type": "Article",
         "@id": "https://iptvnetworkhub.com/iptv-on-android.html#article",
         "headline": "IPTV on Android - Phone, Tablet and Android TV Setup Guide",
         "description": "An Android IPTV setup hub covering the process every Android device shares, plus dedicated guides for Android TV, Google TV and Fire TV devices.",
-        "mainEntityOfPage": {"@id": "https://iptvnetworkhub.com/iptv-on-android.html"},
+        "mainEntityOfPage": { "@id": "https://iptvnetworkhub.com/iptv-on-android.html#webpage" },
         "image": "https://iptvnetworkhub.com/assets/images/devices/Android TV.jpeg",
-        "author": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
-        "publisher": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
         "dateModified": "2026-09-17"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://iptvnetworkhub.com/iptv-on-android.html#webpage",
+        "name": "IPTV on Android - Phone, Tablet and Android TV Setup Guide",
+        "url": "https://iptvnetworkhub.com/iptv-on-android.html",
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+        "about": { "@id": "https://iptvnetworkhub.com/#service" },
+        "mainEntity": { "@id": "https://iptvnetworkhub.com/iptv-on-android.html#article" }
       },
       {
         "@type": "BreadcrumbList",
@@ -47,31 +70,7 @@
           {"@type": "ListItem", "position": 2, "name": "IPTV Guides", "item": "https://iptvnetworkhub.com/iptv-guides.html"},
           {"@type": "ListItem", "position": 3, "name": "IPTV on Android", "item": "https://iptvnetworkhub.com/iptv-on-android.html"}
         ]
-      },
-      {
-        "@type": "HowTo",
-        "name": "How to set up IPTV on Android",
-        "description": "Install a compatible IPTV player on an Android device and configure access with details from a provider you are authorized to use.",
-        "totalTime": "PT10M",
-        "step": [
-          {"@type": "HowToStep", "name": "Check the device", "text": "Install pending system updates and confirm there is enough free storage for the player app and its playlist data."},
-          {"@type": "HowToStep", "name": "Install a compatible IPTV player", "text": "Open Google Play, search for a compatible IPTV player, review its permissions, install it and open it."},
-          {"@type": "HowToStep", "name": "Choose the login method", "text": "Select the method your provider supports, such as Xtream Codes API, an M3U playlist link or a portal connection."},
-          {"@type": "HowToStep", "name": "Enter the supplied details", "text": "Type the username, password and server URL, or paste the playlist link, exactly as your provider issued them."},
-          {"@type": "HowToStep", "name": "Load the channel list and test", "text": "Let the app download its categories and programme guide, then open Live TV, Movies or Series and test playback."}
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {"@type": "Question", "name": "Can I use IPTV on Android?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Android supports a wide range of IPTV players on phones, tablets, Android TV and Google TV devices, and you sign in with details from a service you are authorized to use."}},
-          {"@type": "Question", "name": "Which IPTV player should I use on Android?", "acceptedAnswer": {"@type": "Answer", "text": "Use a player that supports the login method your provider issues and is built for your screen size. On a TV device, prefer a player published for Android TV rather than a phone-only app."}},
-          {"@type": "Question", "name": "Do I need the same app on my phone and my TV?", "acceptedAnswer": {"@type": "Answer", "text": "No. An app installed on a phone does not install on a TV automatically, and TV devices usually need the Android TV build. Install the compatible player separately on each device."}},
-          {"@type": "Question", "name": "Can I cast IPTV from my phone to a TV?", "acceptedAnswer": {"@type": "Answer", "text": "Casting depends on the player and on whether the receiving device supports it. It can work well for casual viewing, but a player running directly on the TV device is usually more stable."}},
-          {"@type": "Question", "name": "Why does my Android IPTV app crash or stutter?", "acceptedAnswer": {"@type": "Answer", "text": "Clear the app's cache, close background apps, check free storage, update the player and the system, then restart the device fully. Persistent errors may come from the account or the service."}}
-        ]
-      }
-    ]
+      }]
   }
  </script>
 </head>

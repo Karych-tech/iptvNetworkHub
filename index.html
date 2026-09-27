@@ -40,12 +40,64 @@
         "inLanguage": "en"
       },
       {
+        "@type": "Service",
+        "@id": "https://iptvnetworkhub.com/#service",
+        "name": "IPTVNetworkHub",
+        "provider": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "url": "https://iptvnetworkhub.com/",
+        "description": "IPTVNetworkHub provides live TV, sports, movies, series and setup guidance for compatible devices.",
+        "serviceType": "IPTV streaming service",
+        "availableChannel": ["Live TV", "Sports", "Movies", "Series" ]
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://iptvnetworkhub.com/#hero-image",
+        "url": "https://iptvnetworkhub.com/assets/images/hero/hero-tv.webp",
+        "contentUrl": "https://iptvnetworkhub.com/assets/images/hero/hero-tv.webp",
+        "caption": "IPTVNetworkHub streaming interface on a television"
+      },
+      {
         "@type": "WebPage",
         "@id": "https://iptvnetworkhub.com/#webpage",
-        "name": "IPTVNetworkHub - Every Channel. One Stream.",
+        "name": "IPTVNetworkHub — Every Channel. One Stream.",
         "url": "https://iptvnetworkhub.com/",
         "description": "Explore IPTV live TV, sports, news, movies and series, plus setup guides and plans for compatible devices from IPTVNetworkHub.",
-        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" }
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+        "about": { "@id": "https://iptvnetworkhub.com/#service" },
+        "primaryImageOfPage": { "@id": "https://iptvnetworkhub.com/#hero-image" }
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://iptvnetworkhub.com/#offer-1month",
+        "name": "1 Month",
+        "description": "1 month IPTV subscription",
+        "price": "15",
+        "priceCurrency": "EUR",
+        "url": "https://iptvnetworkhub.com/#pricing",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": { "@id": "https://iptvnetworkhub.com/#service" }
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://iptvnetworkhub.com/#offer-3months",
+        "name": "3 Months",
+        "description": "3 month IPTV subscription",
+        "price": "30",
+        "priceCurrency": "EUR",
+        "url": "https://iptvnetworkhub.com/#pricing",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": { "@id": "https://iptvnetworkhub.com/#service" }
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://iptvnetworkhub.com/#offer-12months",
+        "name": "12 Months",
+        "description": "12 month IPTV subscription",
+        "price": "49",
+        "priceCurrency": "EUR",
+        "url": "https://iptvnetworkhub.com/#pricing",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": { "@id": "https://iptvnetworkhub.com/#service" }
       }
     ]
   }

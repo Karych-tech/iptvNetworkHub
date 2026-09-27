@@ -28,44 +28,55 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "What sports can I explore on IPTVNetworkHub?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The sports page brings together football programming and sports channels, with examples including basketball, cricket, tennis, motorsport and golf. Check the current channel selection for availability."
-        }
+        "@type": "Organization",
+        "@id": "https://iptvnetworkhub.com/#organization",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/"
       },
       {
-        "@type": "Question",
-        "name": "Which devices can I use to watch sports?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sports can be watched on compatible Smart TVs, streaming devices, phones, tablets and web browsers. Visit the device setup information for the latest compatibility details."
-        }
+        "@type": "WebSite",
+        "@id": "https://iptvnetworkhub.com/#website",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/",
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "inLanguage": "en"
       },
       {
-        "@type": "Question",
-        "name": "How does sports streaming work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Choose a compatible device, connect it to the internet, open the supported viewing experience and browse the available sports channels and programming."
-        }
-      }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://iptvnetworkhub.com/sports.html#webpage",
-    "name": "Sports & Football Streaming | IPTVNetworkHub",
-    "url": "https://iptvnetworkhub.com/sports.html",
-    "description": "Explore sports and football streaming with IPTVNetworkHub, including UK and European football, sports channels, basketball, cricket, tennis, motorsport and golf.",
-    "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" }
+        "@type": "CollectionPage",
+        "@id": "https://iptvnetworkhub.com/sports.html#webpage",
+        "name": "Sports & Football Streaming | IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/sports.html",
+        "description": "Explore sports and football streaming with IPTVNetworkHub, including UK and European football, sports channels, basketball, cricket, tennis, motorsport and golf.",
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+        "about": { "@id": "https://iptvnetworkhub.com/#organization" }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://iptvnetworkhub.com/sports.html#itemlist",
+        "name": "Sports and football coverage",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Premier League" },
+          { "@type": "ListItem", "position": 2, "name": "Champions League" },
+          { "@type": "ListItem", "position": 3, "name": "Bundesliga" },
+          { "@type": "ListItem", "position": 4, "name": "LaLiga" },
+          { "@type": "ListItem", "position": 5, "name": "Jupiler Pro League" },
+          { "@type": "ListItem", "position": 6, "name": "Basketball" },
+          { "@type": "ListItem", "position": 7, "name": "Cricket" },
+          { "@type": "ListItem", "position": 8, "name": "Tennis" },
+          { "@type": "ListItem", "position": 9, "name": "Motorsport" },
+          { "@type": "ListItem", "position": 10, "name": "Golf" }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://iptvnetworkhub.com/sports.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://iptvnetworkhub.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Sports & football", "item": "https://iptvnetworkhub.com/sports.html" }
+        ]
+      }]
   }
   </script>
 </head>

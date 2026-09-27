@@ -22,7 +22,43 @@
   <meta name="twitter:description" content="About IPTVNetworkHub: who we are, what we offer, which devices we support and how to get set up with a free trial over WhatsApp.">
   <meta name="twitter:image" content="https://iptvnetworkhub.com/assets/images/hero/hero-tv.webp">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"AboutPage","@id":"https://iptvnetworkhub.com/about.html#page","name":"About IPTVNetworkHub | Who We Are","url":"https://iptvnetworkhub.com/about.html","description":"About IPTVNetworkHub: who we are, what we offer, which devices we support and how to get set up with a free trial over WhatsApp.","isPartOf":{"@id":"https://iptvnetworkhub.com/#website"},"about":{"@id":"https://iptvnetworkhub.com/#organization"}}
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://iptvnetworkhub.com/#organization",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://iptvnetworkhub.com/#website",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/",
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "AboutPage",
+        "@id": "https://iptvnetworkhub.com/about.html#webpage",
+        "name": "About IPTVNetworkHub | Who We Are",
+        "url": "https://iptvnetworkhub.com/about.html",
+        "description": "About IPTVNetworkHub: who we are, what we offer, which devices we support and how to get set up with a free trial over WhatsApp.",
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+        "about": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "mainEntity": { "@id": "https://iptvnetworkhub.com/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://iptvnetworkhub.com/about.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://iptvnetworkhub.com/" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://iptvnetworkhub.com/about.html" }
+        ]
+      }
+    ]
+  }
   </script>
   <link rel="stylesheet" href="styling.css">
 </head>

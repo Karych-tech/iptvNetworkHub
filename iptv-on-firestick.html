@@ -32,15 +32,38 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://iptvnetworkhub.com/#organization",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://iptvnetworkhub.com/#website",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/",
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
         "@type": "Article",
         "@id": "https://iptvnetworkhub.com/iptv-on-firestick.html#article",
         "headline": "How to Install IPTV on Firestick - Complete Step-by-Step Guide",
         "description": "A complete guide to preparing a Firestick, installing Downloader and an IPTV player, signing in, loading EPG and troubleshooting playback.",
-        "mainEntityOfPage": {"@id": "https://iptvnetworkhub.com/iptv-on-firestick.html"},
+        "mainEntityOfPage": { "@id": "https://iptvnetworkhub.com/iptv-on-firestick.html#webpage" },
         "image": "https://iptvnetworkhub.com/assets/images/firestick/downloader-banner.webp",
-        "author": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
-        "publisher": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
         "dateModified": "2026-09-17"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://iptvnetworkhub.com/iptv-on-firestick.html#webpage",
+        "name": "How to Install IPTV on Firestick - Complete Setup Guide",
+        "url": "https://iptvnetworkhub.com/iptv-on-firestick.html",
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+        "about": { "@id": "https://iptvnetworkhub.com/#service" },
+        "mainEntity": { "@id": "https://iptvnetworkhub.com/iptv-on-firestick.html#article" }
       },
       {
         "@type": "BreadcrumbList",
@@ -50,36 +73,7 @@
           {"@type": "ListItem", "position": 2, "name": "IPTV Guides", "item": "https://iptvnetworkhub.com/iptv-guides.html"},
           {"@type": "ListItem", "position": 3, "name": "IPTV on Firestick", "item": "https://iptvnetworkhub.com/iptv-on-firestick.html"}
         ]
-      },
-      {
-        "@type": "HowTo",
-        "name": "How to install IPTV on Firestick",
-        "description": "Prepare a Firestick, install Downloader, install an IPTV player and configure provider access.",
-        "totalTime": "PT30M",
-        "step": [
-          {"@type": "HowToStep", "name": "Prepare the Firestick", "text": "Connect the Firestick to the TV and internet, then open Settings, My Fire TV and About."},
-          {"@type": "HowToStep", "name": "Enable installation permission", "text": "Open Developer Options and enable Install Unknown Apps for Downloader, or Apps from Unknown Sources on older Fire OS versions."},
-          {"@type": "HowToStep", "name": "Install Downloader", "text": "Use Firestick Search to find the official Downloader app, install it and open it."},
-          {"@type": "HowToStep", "name": "Install an IPTV player", "text": "Use Downloader only with an installation source supplied by the player publisher or your authorized provider, then install the compatible player."},
-          {"@type": "HowToStep", "name": "Sign in and load channels", "text": "Choose the player's login method, enter the credentials supplied by your provider, then wait for Live TV, VOD and EPG data to load."}
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {"@type": "Question", "name": "Can I install IPTV on a Firestick?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You install a compatible IPTV player on the Firestick and then sign in with details from an IPTV provider you are authorized to use."}},
-          {"@type": "Question", "name": "How do I install IPTV on Amazon Firestick?", "acceptedAnswer": {"@type": "Answer", "text": "Prepare the Firestick, install Downloader, allow the required installation permission, install a compatible IPTV player and enter your provider credentials."}},
-          {"@type": "Question", "name": "Do I need Downloader for IPTV on Firestick?", "acceptedAnswer": {"@type": "Answer", "text": "Not always. Downloader is useful when a compatible player is not available directly in the Amazon app store, but the player's availability and installation method can vary."}},
-          {"@type": "Question", "name": "How do I enable Install Unknown Apps?", "acceptedAnswer": {"@type": "Answer", "text": "Open Settings, My Fire TV and Developer Options, choose Install Unknown Apps, then allow Downloader. Older Fire OS versions may call this Apps from Unknown Sources."}},
-          {"@type": "Question", "name": "Which IPTV player can I use on Firestick?", "acceptedAnswer": {"@type": "Answer", "text": "Use a player compatible with your Fire OS version and available through a legitimate installation source. IPTV Smarters is one example, but it is not the only option."}},
-          {"@type": "Question", "name": "How do I enter IPTV credentials on Firestick?", "acceptedAnswer": {"@type": "Answer", "text": "Open the player, select its provider login method and enter the username, password and server or portal details supplied by your provider."}},
-          {"@type": "Question", "name": "How do I add EPG to IPTV?", "acceptedAnswer": {"@type": "Answer", "text": "Some providers include EPG data automatically. Otherwise, use the player's EPG option and the configuration details supplied by your provider; do not guess an EPG address."}},
-          {"@type": "Question", "name": "Why is IPTV buffering on my Firestick?", "acceptedAnswer": {"@type": "Answer", "text": "Check the connection, restart the Firestick and router, reduce network congestion, update the player and test another channel. Persistent buffering may be caused by the provider or network."}},
-          {"@type": "Question", "name": "Why are my IPTV channels not loading?", "acceptedAnswer": {"@type": "Answer", "text": "Check the provider credentials, server status, internet connection and playlist refresh options. Contact the provider if the account or service is unavailable."}},
-          {"@type": "Question", "name": "Can I use IPTV on Fire TV Stick 4K?", "acceptedAnswer": {"@type": "Answer", "text": "Usually, yes, provided the player supports the Fire OS version on the device and the Firestick has enough storage and a stable internet connection."}}
-        ]
-      }
-    ]
+      }]
   }
  </script>
 </head>

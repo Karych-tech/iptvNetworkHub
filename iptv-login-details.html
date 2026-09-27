@@ -29,15 +29,38 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://iptvnetworkhub.com/#organization",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://iptvnetworkhub.com/#website",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/",
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
         "@type": "Article",
         "@id": "https://iptvnetworkhub.com/iptv-login-details.html#article",
         "headline": "IPTV Login Details Explained - Username, Password and Server URL",
         "description": "A plain-English guide to IPTV login details: what a provider issues, how to choose the right login method, EPG configuration and troubleshooting a failed login.",
-        "mainEntityOfPage": {"@id": "https://iptvnetworkhub.com/iptv-login-details.html"},
+        "mainEntityOfPage": { "@id": "https://iptvnetworkhub.com/iptv-login-details.html#webpage" },
         "image": "https://iptvnetworkhub.com/assets/images/guides/iptv-player.webp",
-        "author": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
-        "publisher": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
         "dateModified": "2026-09-17"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://iptvnetworkhub.com/iptv-login-details.html#webpage",
+        "name": "IPTV Login Details Explained - Username, Password & Server URL",
+        "url": "https://iptvnetworkhub.com/iptv-login-details.html",
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+        "about": { "@id": "https://iptvnetworkhub.com/#service" },
+        "mainEntity": { "@id": "https://iptvnetworkhub.com/iptv-login-details.html#article" }
       },
       {
         "@type": "BreadcrumbList",
@@ -47,22 +70,7 @@
           {"@type": "ListItem", "position": 2, "name": "IPTV Guides", "item": "https://iptvnetworkhub.com/iptv-guides.html"},
           {"@type": "ListItem", "position": 3, "name": "Login details", "item": "https://iptvnetworkhub.com/iptv-login-details.html"}
         ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {"@type": "Question", "name": "What login details do I need for IPTV?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the login method your provider uses. The most common is an Xtream Codes-style login with a username, a password and a server or portal URL. Other services issue an M3U playlist link instead, or activate a device by MAC address or activation code."}},
-          {"@type": "Question", "name": "Where do I find my IPTV username, password and server URL?", "acceptedAnswer": {"@type": "Answer", "text": "They are issued by your provider, normally in a welcome or activation message, on a customer dashboard or through support. They are not published on websites or in video descriptions, and you should never borrow credentials from another person."}},
-          {"@type": "Question", "name": "What does an Xtream Codes login look like?", "acceptedAnswer": {"@type": "Answer", "text": "It is a username, a password and a server or portal URL such as http://example.com:8080, where the number after the colon is a port. Enter all three exactly as supplied, including the http:// prefix and any port number."}},
-          {"@type": "Question", "name": "What is an M3U playlist link?", "acceptedAnswer": {"@type": "Answer", "text": "A playlist link is a URL that points to a list of stream addresses, usually ending in .m3u or .m3u8. You paste the whole link into the player's playlist or M3U option instead of typing a username and password."}},
-          {"@type": "Question", "name": "Why does my IPTV login fail?", "acceptedAnswer": {"@type": "Answer", "text": "The most common causes are a mistyped character, a wrong login method, a missing port number, an expired or suspended subscription, and too many simultaneous connections. Recheck the details first, then contact your provider."}},
-          {"@type": "Question", "name": "Should I add http:// to the IPTV server URL?", "acceptedAnswer": {"@type": "Answer", "text": "Use exactly the format your provider supplied. If the address they sent includes http:// or https://, keep it. If some players add the prefix automatically, you will see a doubled prefix in the field, which you should correct."}},
-          {"@type": "Question", "name": "Can I use the same IPTV login on two devices?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your subscription's simultaneous connection limit. Signing in on more devices than your plan allows commonly produces a login error or drops the older stream. Check your plan or ask your provider."}},
-          {"@type": "Question", "name": "Is it safe to share my IPTV login details?", "acceptedAnswer": {"@type": "Answer", "text": "No. Credentials give access to your account and its connection slots, and sharing them usually breaks the terms of the service. Treat them like a password: keep them private and ask your provider for a reset if they may have leaked."}},
-          {"@type": "Question", "name": "What are the EPG URL and the XMLTV file?", "acceptedAnswer": {"@type": "Answer", "text": "EPG data is the programme schedule rather than the streams. Some players accept an XMLTV guide link that ends in .xml or .xml.gz. Use only the guide address your provider supplies, and leave the field empty if the guide loads automatically."}}
-        ]
-      }
-    ]
+      }]
   }
  </script>
 </head>

@@ -29,15 +29,38 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://iptvnetworkhub.com/#organization",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://iptvnetworkhub.com/#website",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/",
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
         "@type": "Article",
         "@id": "https://iptvnetworkhub.com/iptv-on-samsung-smart-tv.html#article",
         "headline": "How to Set Up IPTV on Samsung Smart TV - Step-by-Step Guide",
         "description": "A complete guide to preparing a Samsung Smart TV, installing a compatible IPTV player from the Tizen app store, signing in with provider details, loading EPG and troubleshooting playback.",
-        "mainEntityOfPage": {"@id": "https://iptvnetworkhub.com/iptv-on-samsung-smart-tv.html"},
+        "mainEntityOfPage": { "@id": "https://iptvnetworkhub.com/iptv-on-samsung-smart-tv.html#webpage" },
         "image": "https://iptvnetworkhub.com/assets/images/guides/smart-tv.webp",
-        "author": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
-        "publisher": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
         "dateModified": "2026-09-17"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://iptvnetworkhub.com/iptv-on-samsung-smart-tv.html#webpage",
+        "name": "How to Set Up IPTV on Samsung Smart TV - Complete Setup Guide",
+        "url": "https://iptvnetworkhub.com/iptv-on-samsung-smart-tv.html",
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+        "about": { "@id": "https://iptvnetworkhub.com/#service" },
+        "mainEntity": { "@id": "https://iptvnetworkhub.com/iptv-on-samsung-smart-tv.html#article" }
       },
       {
         "@type": "BreadcrumbList",
@@ -48,35 +71,7 @@
           {"@type": "ListItem", "position": 3, "name": "IPTV on Smart TV", "item": "https://iptvnetworkhub.com/iptv-on-smart-tv.html"},
           {"@type": "ListItem", "position": 4, "name": "IPTV on Samsung Smart TV", "item": "https://iptvnetworkhub.com/iptv-on-samsung-smart-tv.html"}
         ]
-      },
-      {
-        "@type": "HowTo",
-        "name": "How to set up IPTV on a Samsung Smart TV",
-        "description": "Prepare a Samsung Smart TV, install a compatible IPTV player from the Samsung app store and configure provider access.",
-        "totalTime": "PT15M",
-        "step": [
-          {"@type": "HowToStep", "name": "Check the TV model and year", "text": "Open Settings, Support and About This TV to check the model code and software version, then install any pending updates."},
-          {"@type": "HowToStep", "name": "Connect the TV to the internet", "text": "Use Ethernet where possible, or join a strong 5 GHz Wi-Fi network, and confirm the TV is online."},
-          {"@type": "HowToStep", "name": "Install a compatible IPTV player", "text": "Open the Samsung app store, search for a compatible IPTV player, install it and open it."},
-          {"@type": "HowToStep", "name": "Enter your provider details", "text": "Choose the login method your provider supports, such as Xtream Codes API or an M3U playlist, and enter the supplied details exactly."},
-          {"@type": "HowToStep", "name": "Load channels and the EPG", "text": "Let the player download its categories and programme guide, then open Live TV, Movies or Series and test playback."}
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {"@type": "Question", "name": "Can I install IPTV on a Samsung Smart TV?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if a compatible IPTV player is available in the Samsung app store for your TV model and year. You install the player and sign in with details from an IPTV service you are authorized to use."}},
-          {"@type": "Question", "name": "Which Samsung TVs support IPTV players?", "acceptedAnswer": {"@type": "Answer", "text": "Models from roughly 2018 onward, running Tizen 4.0 or later, have the widest choice of players. Older Tizen and pre-Tizen models have fewer options, so check the app store before assuming a player will install."}},
-          {"@type": "Question", "name": "Is there an official IPTV app for Samsung Smart TV?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single official IPTV app. Several compatible player apps are published for Samsung Tizen TVs, and availability varies by country and model year. Your provider may also recommend one."}},
-          {"@type": "Question", "name": "Do I need a Samsung account to install an IPTV player?", "acceptedAnswer": {"@type": "Answer", "text": "A Samsung account is normally required to install apps from the Samsung app store. If the TV is already signed in, no extra account is needed."}},
-          {"@type": "Question", "name": "How do I enter IPTV login details on a Samsung TV?", "acceptedAnswer": {"@type": "Answer", "text": "Open the player, choose its provider login method and enter the username, password and server or portal address supplied by your provider, using the on-screen keyboard or the SmartThings app."}},
-          {"@type": "Question", "name": "How do I add the EPG on a Samsung Smart TV?", "acceptedAnswer": {"@type": "Answer", "text": "Many providers deliver guide data automatically when the playlist loads. If the guide is empty, use the player's EPG option and the configuration details supplied by your provider rather than guessing an address."}},
-          {"@type": "Question", "name": "Why does my Samsung TV IPTV app keep buffering?", "acceptedAnswer": {"@type": "Answer", "text": "Check the Wi-Fi signal or use Ethernet, restart the router and TV, reduce other network activity, update the player and test another channel before reinstalling anything."}},
-          {"@type": "Question", "name": "The IPTV app is missing from my Samsung TV app store. What can I do?", "acceptedAnswer": {"@type": "Answer", "text": "Search the store using different terms, confirm the TV software is up to date and check whether the player supports your model year. If it still is not available, use a supported external device such as a Fire TV Stick or Android TV box."}},
-          {"@type": "Question", "name": "Can I use IPTV on a Samsung TV without a box?", "acceptedAnswer": {"@type": "Answer", "text": "Often yes. If a compatible player is available for your model, the TV can run it directly. Otherwise an external streaming device is the practical alternative."}}
-        ]
-      }
-    ]
+      }]
   }
  </script>
 </head>

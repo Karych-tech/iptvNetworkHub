@@ -22,7 +22,43 @@
   <meta name="twitter:description" content="Privacy policy for IPTVNetworkHub: what data we collect, how we use it, how long we keep it and the rights you have over it.">
   <meta name="twitter:image" content="https://iptvnetworkhub.com/assets/images/hero/hero-tv.webp">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","@id":"https://iptvnetworkhub.com/privacy.html#page","name":"Privacy Policy | IPTVNetworkHub","url":"https://iptvnetworkhub.com/privacy.html","description":"Privacy policy for IPTVNetworkHub: what data we collect, how we use it, how long we keep it and the rights you have over it.","isPartOf":{"@id":"https://iptvnetworkhub.com/#website"}}
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://iptvnetworkhub.com/#organization",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://iptvnetworkhub.com/#website",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/",
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://iptvnetworkhub.com/privacy.html#webpage",
+        "name": "Privacy Policy | IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/privacy.html",
+        "description": "Privacy policy for IPTVNetworkHub: what data we collect, how we use it, how long we keep it and the rights you have over it.",
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+        "about": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "dateModified": "2026-09-25"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://iptvnetworkhub.com/privacy.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://iptvnetworkhub.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Privacy policy", "item": "https://iptvnetworkhub.com/privacy.html" }
+        ]
+      }
+    ]
+  }
   </script>
   <link rel="stylesheet" href="styling.css">
 </head>

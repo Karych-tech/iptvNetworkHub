@@ -31,33 +31,71 @@
 
     <link rel="stylesheet" href="styling.css">
 
-    <!-- Structured data: WebSite + Organization (no ratings or reviews) -->
     <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://iptvnetworkhub.com/#organization",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/"
+      },
+      {
         "@type": "WebSite",
         "@id": "https://iptvnetworkhub.com/#website",
         "name": "IPTVNetworkHub",
         "url": "https://iptvnetworkhub.com/",
-        "description": "Live TV and on-demand entertainment streamed to supported devices."
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://iptvnetworkhub.com/#organization",
-        "name": "IPTVNetworkHub",
-        "url": "https://iptvnetworkhub.com/",
-        "logo": "https://iptvnetworkhub.com/assets/images/hero/hero-tv.webp"
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "inLanguage": "en"
       },
       {
         "@type": "CollectionPage",
-        "@id": "https://iptvnetworkhub.com/channels.html#page",
+        "@id": "https://iptvnetworkhub.com/channels.html#webpage",
         "name": "IPTV Channels — Sports, News, Movies & Entertainment",
         "url": "https://iptvnetworkhub.com/channels.html",
-        "description": "Channel lineup browser organised by sports, news, entertainment, movies, kids and family, and international categories.",
+        "description": "Explore IPTVNetworkHub channels across sports, news, movies, entertainment and family programming. Browse categories and supported devices.",
         "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
         "about": { "@id": "https://iptvnetworkhub.com/#organization" }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://iptvnetworkhub.com/channels.html#itemlist",
+        "name": "IPTVNetworkHub channels",
+        "numberOfItems": 23,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ESPN" },
+          { "@type": "ListItem", "position": 2, "name": "NBA" },
+          { "@type": "ListItem", "position": 3, "name": "beIN Sports" },
+          { "@type": "ListItem", "position": 4, "name": "Premier League" },
+          { "@type": "ListItem", "position": 5, "name": "Champions League" },
+          { "@type": "ListItem", "position": 6, "name": "Bundesliga" },
+          { "@type": "ListItem", "position": 7, "name": "LaLiga" },
+          { "@type": "ListItem", "position": 8, "name": "Canal+" },
+          { "@type": "ListItem", "position": 9, "name": "Netflix" },
+          { "@type": "ListItem", "position": 10, "name": "HBO Max" },
+          { "@type": "ListItem", "position": 11, "name": "Disney Channel" },
+          { "@type": "ListItem", "position": 12, "name": "Fox" },
+          { "@type": "ListItem", "position": 13, "name": "Hulu" },
+          { "@type": "ListItem", "position": 14, "name": "BBC" },
+          { "@type": "ListItem", "position": 15, "name": "CNN" },
+          { "@type": "ListItem", "position": 16, "name": "Sky Sports" },
+          { "@type": "ListItem", "position": 17, "name": "RMC Sport" },
+          { "@type": "ListItem", "position": 18, "name": "Jupiler Pro League" },
+          { "@type": "ListItem", "position": 19, "name": "Film" },
+          { "@type": "ListItem", "position": 20, "name": "Kids & Family" },
+          { "@type": "ListItem", "position": 21, "name": "News" },
+          { "@type": "ListItem", "position": 22, "name": "Entertainment" },
+          { "@type": "ListItem", "position": 23, "name": "International" }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://iptvnetworkhub.com/channels.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://iptvnetworkhub.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Live TV", "item": "https://iptvnetworkhub.com/channels.html" }
+        ]
       }
     ]
   }

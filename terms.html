@@ -22,7 +22,43 @@
     <meta name="twitter:description" content="Terms of service for IPTVNetworkHub: plans and pricing, free trials, acceptable use, refunds, liability and the rules that apply to your subscription.">
     <meta name="twitter:image" content="https://iptvnetworkhub.com/assets/images/hero/hero-tv.webp">
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebPage","@id":"https://iptvnetworkhub.com/terms.html#page","name":"Terms of Service | IPTVNetworkHub","url":"https://iptvnetworkhub.com/terms.html","description":"Terms of service for IPTVNetworkHub: plans and pricing, free trials, acceptable use, refunds, liability and the rules that apply to your subscription.","isPartOf":{"@id":"https://iptvnetworkhub.com/#website"}}
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://iptvnetworkhub.com/#organization",
+          "name": "IPTVNetworkHub",
+          "url": "https://iptvnetworkhub.com/"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://iptvnetworkhub.com/#website",
+          "name": "IPTVNetworkHub",
+          "url": "https://iptvnetworkhub.com/",
+          "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://iptvnetworkhub.com/terms.html#webpage",
+          "name": "Terms of Service | IPTVNetworkHub",
+          "url": "https://iptvnetworkhub.com/terms.html",
+          "description": "Terms of service for IPTVNetworkHub: plans and pricing, free trials, acceptable use, refunds, liability and the rules that apply to your subscription.",
+          "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+          "about": { "@id": "https://iptvnetworkhub.com/#organization" },
+          "dateModified": "2026-09-25"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://iptvnetworkhub.com/terms.html#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://iptvnetworkhub.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Terms of service", "item": "https://iptvnetworkhub.com/terms.html" }
+          ]
+        }
+      ]
+    }
     </script>
   <link rel="stylesheet" href="styling.css">
 </head>

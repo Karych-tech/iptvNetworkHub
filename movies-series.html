@@ -25,12 +25,56 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "@id": "https://iptvnetworkhub.com/movies-series.html#page",
-    "name": "Movies & TV Series | IPTVNetworkHub",
-    "url": "https://iptvnetworkhub.com/movies-series.html",
-    "description": "Explore movies and TV series on IPTVNetworkHub. Discover action, drama, adventure, animation and more across a growing entertainment library.",
-    "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://iptvnetworkhub.com/#organization",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://iptvnetworkhub.com/#website",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/",
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://iptvnetworkhub.com/movies-series.html#webpage",
+        "name": "Movies & TV Series | IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/movies-series.html",
+        "description": "Explore movies and TV series on IPTVNetworkHub. Discover action, drama, adventure, animation and more across a growing entertainment library.",
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+        "about": { "@id": "https://iptvnetworkhub.com/#organization" }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://iptvnetworkhub.com/movies-series.html#itemlist",
+        "name": "Featured movies and series",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Nobody" },
+          { "@type": "ListItem", "position": 2, "name": "Breaking Bad" },
+          { "@type": "ListItem", "position": 3, "name": "Avatar" },
+          { "@type": "ListItem", "position": 4, "name": "The Last of Us" },
+          { "@type": "ListItem", "position": 5, "name": "The Beekeeper" },
+          { "@type": "ListItem", "position": 6, "name": "Fallout" },
+          { "@type": "ListItem", "position": 7, "name": "Moana" },
+          { "@type": "ListItem", "position": 8, "name": "Crime 101" },
+          { "@type": "ListItem", "position": 9, "name": "Fall" },
+          { "@type": "ListItem", "position": 10, "name": "Luca" }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://iptvnetworkhub.com/movies-series.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://iptvnetworkhub.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Movies & Series", "item": "https://iptvnetworkhub.com/movies-series.html" }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="stylesheet" href="styling.css">

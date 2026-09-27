@@ -29,15 +29,38 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://iptvnetworkhub.com/#organization",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://iptvnetworkhub.com/#website",
+        "name": "IPTVNetworkHub",
+        "url": "https://iptvnetworkhub.com/",
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "inLanguage": "en"
+      },
+      {
         "@type": "Article",
         "@id": "https://iptvnetworkhub.com/iptv-on-smart-tv.html#article",
         "headline": "How to Set Up IPTV on Smart TV - Samsung, LG and Android TV Guides",
         "description": "A Smart TV IPTV setup hub covering the process every platform shares, plus dedicated step-by-step guides for Samsung, LG, Android TV and Google TV.",
-        "mainEntityOfPage": {"@id": "https://iptvnetworkhub.com/iptv-on-smart-tv.html"},
+        "mainEntityOfPage": { "@id": "https://iptvnetworkhub.com/iptv-on-smart-tv.html#webpage" },
         "image": "https://iptvnetworkhub.com/assets/images/guides/smart-tv.webp",
-        "author": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
-        "publisher": {"@type": "Organization", "name": "IPTVNetworkHub", "url": "https://iptvnetworkhub.com/"},
+        "publisher": { "@id": "https://iptvnetworkhub.com/#organization" },
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
         "dateModified": "2026-09-17"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://iptvnetworkhub.com/iptv-on-smart-tv.html#webpage",
+        "name": "How to Set Up IPTV on Smart TV - Samsung, LG and Android TV Guides",
+        "url": "https://iptvnetworkhub.com/iptv-on-smart-tv.html",
+        "isPartOf": { "@id": "https://iptvnetworkhub.com/#website" },
+        "about": { "@id": "https://iptvnetworkhub.com/#service" },
+        "mainEntity": { "@id": "https://iptvnetworkhub.com/iptv-on-smart-tv.html#article" }
       },
       {
         "@type": "BreadcrumbList",
@@ -47,18 +70,7 @@
           {"@type": "ListItem", "position": 2, "name": "IPTV Guides", "item": "https://iptvnetworkhub.com/iptv-guides.html"},
           {"@type": "ListItem", "position": 3, "name": "IPTV on Smart TV", "item": "https://iptvnetworkhub.com/iptv-on-smart-tv.html"}
         ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {"@type": "Question", "name": "Can I install IPTV directly on a Smart TV?", "acceptedAnswer": {"@type": "Answer", "text": "Often yes, when a compatible player is available in that TV's official app store for your model and year. Otherwise an external streaming device is the practical alternative."}},
-          {"@type": "Question", "name": "Which Smart TV platforms support IPTV?", "acceptedAnswer": {"@type": "Answer", "text": "Samsung (Tizen), LG (webOS), Android TV and Google TV are the common ones. Player availability varies by platform, country and model year."}},
-          {"@type": "Question", "name": "Do I need a separate device for IPTV?", "acceptedAnswer": {"@type": "Answer", "text": "Not if a suitable player exists for your TV. If it does not, a Fire TV Stick, Android TV box or Google TV device turns the TV into a capable IPTV screen."}},
-          {"@type": "Question", "name": "Are the login details the same on every TV?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Your provider issues one set of credentials, and the same details work on any device you are authorized to use; only the app and the login method differ."}},
-          {"@type": "Question", "name": "Why does buffering affect one channel but not others?", "acceptedAnswer": {"@type": "Answer", "text": "A single failing channel points at that stream, while everything failing at once points at your network or the service. Restart the router and TV before reinstalling anything."}}
-        ]
-      }
-    ]
+      }]
   }
  </script>
 </head>
