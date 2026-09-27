@@ -1,7 +1,7 @@
 /* ==========================================================================
    IPTVNetworkHub — shared site script
-   Loaded by every page (index.html, channels.html, contact.html, privacy.html,
-   terms.html). Everything here is defensive: if a page does not contain the
+   Loaded by every page (index, channels, contact, privacy, terms).
+   Everything here is defensive: if a page does not contain the
    element a block looks for, that block simply does nothing.
 
    Contents:
@@ -74,7 +74,7 @@
   }
 
   /* ------------------------------------------------------------------------
-     2. Swiper arrow controls (index.html channel / movie strips)
+     2. Swiper arrow controls (index channel / movie strips)
      ---------------------------------------------------------------------- */
   function initSwipers() {
     var buttons = document.querySelectorAll('.swiper-btn');
@@ -259,12 +259,14 @@
   function initActiveNav() {
     // Resolve a URL path to a canonical form so that a page compares as the
     // same destination however it is linked. The implicit "index.html" of a
-    // directory and any trailing "/" are stripped, so "/" and "/index.html"
-    // (or "/guides/" and "/guides") match. Flat pages such as
-    // "/iptv-guides.html" and "/what-is-iptv.html" keep their filename and are
-    // compared directly.
+    // directory, any trailing ".html" extension and any trailing "/" are
+    // stripped, so "/", "/index", "/sports" and "/sports.html" all
+    // resolve to the same destination. Clean URLs are used across the site;
+    // the ".html" handling stays only as a safety net so an older or
+    // externally written link still highlights the right navigation item.
     function canonicalPath(pathname) {
       var path = pathname.replace(/index\.html$/i, '');
+      path = path.replace(/\.html$/i, '');
       if (path.length > 1) {
         path = path.replace(/\/+$/, '');
       }
@@ -279,7 +281,7 @@
       if (!href || href.indexOf('#') === 0) return;
 
       // Only a link with no hash fragment points AT a page. Links such as
-      // "index.html#pricing" point at a section of a page, so marking them
+      // "index#pricing" point at a section of a page, so marking them
       // would flag most of the navigation on every page.
       if (href.indexOf('#') !== -1) return;
 
@@ -287,8 +289,8 @@
       if (link.classList.contains('btn')) return;
 
       // Resolve the link relative to the current document before comparing,
-      // so relative links such as "index.html" and "iptv-guides.html" are
-      // handled correctly.
+      // so relative links such as "index" and "iptv-guides" are handled
+      // correctly.
       var resolved;
       try {
         resolved = canonicalPath(new URL(href, location.href).pathname);

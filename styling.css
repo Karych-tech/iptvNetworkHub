@@ -16,7 +16,7 @@
 
 /* ==========================================================================
    IPTVNetworkHub — shared stylesheet
-   Extracted from index.html so that index.html and channels.html can share
+   Extracted from index so that index and channels can share
    one visual system (variables, reset, typography, buttons, nav, sections,
    cards, bento, pricing, testimonials, FAQ, footer, waves, responsive rules).
    Page-specific styles are scoped under .channels-page at the end of the file.
@@ -318,7 +318,7 @@ img {
   }
 }
 
-/* Mobile navigation drawer (shared by index.html and channels.html).
+/* Mobile navigation drawer (shared by index and channels).
    It is an overlay: it is taken out of the flow so opening it never
    grows the sticky header and never pushes the page content down.
    It opens with a small slide/fade rather than popping in. */
@@ -1292,7 +1292,7 @@ img {
   flex: none;
 }
 
-/* Each slide links to the full channel lineup on channels.html */
+/* Each slide links to the full channel lineup on channels */
 .channel-slide {
   display: block;
   width: 230px;
@@ -2004,8 +2004,8 @@ a[aria-current="page"]:focus-visible {
 
 /* ==========================================================================
    SHARED CHANNEL COMPONENTS
-   Building blocks reused by the channel strips on index.html and by the
-   channel grid on channels.html.
+   Building blocks reused by the channel strips on index and by the
+   channel grid on channels.
    ========================================================================== */
 
 .channel-category {
@@ -2170,7 +2170,7 @@ a[aria-current="page"]:focus-visible {
   margin: 28px auto 34px;
 }
 
-/* ---- Guide article extras (what-is-iptv.html and later guides) -------
+/* ---- Guide article extras (what-is-iptv and later guides) -------
    In-article figures and the terminology table reuse the same content
    width, radius, border and paper background as .guide-image, so a
    long-form guide still reads as part of the same design system. */
@@ -3096,7 +3096,7 @@ a   taller frame that shows the whole logo on its own dark panel, with the
 }
 
 /* ==========================================================================
-   CHANNELS PAGE (scoped — does not affect index.html)
+   CHANNELS PAGE (scoped — does not affect index)
    Every rule below is namespaced under .channels-page.
    ========================================================================== */
 
@@ -3300,7 +3300,7 @@ a   taller frame that shows the whole logo on its own dark panel, with the
 }
 
 /* The project's channel logos are mostly white artwork on transparent
-   backgrounds (the same reason index.html renders its channel strip on
+   backgrounds (the same reason index renders its channel strip on
    black), so the card frame stays dark for legibility. */
 .channel-card .channel-logo-frame {
   background: var(--black);
