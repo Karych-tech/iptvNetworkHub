@@ -1911,6 +1911,88 @@ footer {
   color: rgba(255, 255, 255, 0.78);
 }
 
+/* Payment strip at the bottom of the footer: a framed panel holding the
+   "secure payments" label and the accepted card / wallet badges. Sits above
+   the copyright bar and stacks vertically on narrow screens.
+   The badge SVGs are all 120x40, so each sits in a fixed-size card and the
+   mark is scaled with object-fit: contain to keep a consistent visual size. */
+.footer-payments {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-top: 34px;
+  padding: 16px 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+}
+
+.footer-payments-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.footer-payments-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.footer-payments-label svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.footer-payments-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-payments-list li {
+  margin: 0;
+  display: block;
+}
+
+.footer-payments-list img {
+  display: block;
+  height: 28px;
+  width: 76px;
+  object-fit: contain;
+  padding: 4px 6px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.28);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-payments-list img:hover {
+  transform: translateY(-2px);
+  border-color: rgba(233, 195, 92, 0.6);
+  box-shadow: 0 8px 18px -6px rgba(233, 195, 92, 0.45);
+}
+
+.footer-payments-list img:focus-visible {
+  outline: 2px solid var(--gold-1);
+  outline-offset: 2px;
+}
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -1953,6 +2035,21 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+  }
+
+  .footer-payments {
+    justify-content: center;
+    gap: 14px;
+    padding: 16px 16px 18px;
+  }
+
+  .footer-payments-list {
+    gap: 7px;
+  }
+
+  .footer-payments-list img {
+    height: 25px;
+    width: 68px;
   }
 }
 
